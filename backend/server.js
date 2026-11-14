@@ -4,6 +4,8 @@ require('dotenv').config();
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
+const friendshipRoutes = require('./routes/friendshipRoutes');
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -12,6 +14,7 @@ const API_KEY = process.env.YT_Key;
 app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/friends', friendshipRoutes);
 
 const Restricted_words = ['karaoke', 'live'];
 const min_time = 60;   
