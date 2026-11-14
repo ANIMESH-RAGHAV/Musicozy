@@ -1,12 +1,17 @@
 const express = require('express');
 const axios = require('axios');
 require('dotenv').config();
+const connectDB = require('./config/db');
+const authRoutes = require('./routes/authRoutes');
+const userRoutes = require('./routes/userRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 const API_KEY = process.env.YT_Key;
 
 app.use(express.json());
+app.use('/api/auth', authRoutes);
+app.use('/api/users', userRoutes);
 
 const Restricted_words = ['karaoke', 'live'];
 const min_time = 60;   
@@ -120,6 +125,11 @@ app.get('/api/search', async function(req, res) {
   }
 });
 
-app.listen(PORT, function() {
-  console.log('Running');
-});
+async function startServer() {
+  await connectDB();
+  app.listen(PORT, function() {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
+
+startServer();
