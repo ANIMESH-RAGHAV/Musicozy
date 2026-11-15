@@ -17,47 +17,17 @@
       <nav class="main-nav" aria-label="Main navigation">
         <a class="nav-current" href="index.html">Discover <span>01</span></a>
         <a href="#recent">History <span>02</span></a>
-        <a href="#library">Library <span>03</span></a>
       </nav>
       <div class="header-tools">
-        <a class="search-trigger" href="#search"><span class="search-glyph">⌕</span> Search</a>
+        <button class="search-trigger" type="button" aria-expanded="false" aria-controls="search-panel">
+          <span class="search-glyph" aria-hidden="true">⌕</span> Search
+        </button>
         <a class="account-link" href="login.html">Sign in <span aria-hidden="true">↗</span></a>
       </div>
     </header>
 
-    <main>
-      <section class="intro-strip">
-        <span class="mono-label">INDEPENDENT LISTENING PLATFORM</span>
-        <span class="mono-label intro-right">EST. MMXXVI <i class="red-square"></i> VOL. 001</span>
-      </section>
-
-      <section class="hero">
-        <div class="hero-heading">
-          <p class="section-index">01 / THE LISTENING ROOM</p>
-          <h1>LISTEN<br><span>CLOSER</span><b>.</b></h1>
-          <div class="hero-bottomline">
-            <p>A quieter corner of the internet.<br>Made for music, not noise.</p>
-            <a class="text-arrow" href="#recent">Explore your history <span>↘</span></a>
-          </div>
-        </div>
-        <div class="hero-art">
-          <div class="art-topline"><span>FEATURED ROTATION</span><span>NO. 001—004</span></div>
-          <div class="feature-artwork">
-            <div class="art-geometry geometry-a"></div>
-            <div class="art-geometry geometry-b"></div>
-            <div class="art-geometry geometry-c"></div>
-            <span class="art-stamp">MZ<br>001</span>
-            <span class="art-caption">SOUND<br>IN FORM</span>
-          </div>
-          <div class="feature-meta">
-            <div><span class="meta-label">ON REPEAT</span><h2>Your next favourite<br>is one search away.</h2></div>
-            <span class="feature-number">01<span>/04</span></span>
-          </div>
-        </div>
-      </section>
-
-      <section class="search-band" id="search">
-        <div class="search-intro"><span class="section-index">02 / FIND A TRACK</span><span class="mono-label">SEARCH THE CATALOGUE</span></div>
+          <section class="search-band search-panel" id="search-panel" hidden>
+        <div class="search-intro"><span class="section-index">FIND A TRACK</span><span class="mono-label">SEARCH THE CATALOGUE</span></div>
         <form class="search-form" action="/api/search" method="get">
           <label class="visually-hidden" for="query">Search songs and artists</label>
           <input id="query" type="search" name="q" placeholder="What do you want to hear?" required>
@@ -65,9 +35,55 @@
         </form>
       </section>
 
+    <main>
+      <section class="now-playing" aria-labelledby="now-playing-title">
+        <div class="now-playing-art-panel">
+          <div class="now-playing-artwork" id="now-playing-artwork">
+            <!-- Set this image's src to the active track's thumbnail URL when a track starts. -->
+            <img id="current-track-thumbnail" class="current-track-thumbnail"
+                 alt="Album artwork for the currently playing song" hidden>
+            <div class="artwork-placeholder" id="artwork-placeholder" aria-hidden="true">
+              <span class="artwork-stamp">MZ<br>001</span>
+              <span class="placeholder-sun"></span>
+              <span class="placeholder-orbit placeholder-orbit-one"></span>
+              <span class="placeholder-orbit placeholder-orbit-two"></span>
+              <span class="placeholder-caption">YOUR<br>SOUND</span>
+            </div>
+          </div>
+          <span class="art-panel-index mono-label">MZ / COVER 001</span>
+        </div>
+
+        <div class="now-playing-details">
+          <div class="now-playing-kicker section-index">01 / THE LISTENING ROOM</div>
+          <div class="track-status mono-label"><span class="status-dot"></span> NOW PLAYING</div>
+          <p class="now-playing-eyebrow mono-label">CURRENT ROTATION / TRACK 001</p>
+          <h1 id="now-playing-title">Nothing<br>playing<span class="red-period">.</span></h1>
+          <p class="now-playing-artist" id="now-playing-artist">Select a track to begin listening.</p>
+
+          <div class="now-playing-progress" aria-label="Track progress">
+            <div class="now-playing-progress-track"><span id="now-playing-progress-fill"></span></div>
+            <div class="now-playing-time mono-label">
+              <span id="now-playing-current-time">0:00</span>
+              <span id="now-playing-duration">0:00</span>
+            </div>
+          </div>
+
+          <div class="now-playing-controls" aria-label="Playback controls">
+            <button type="button" aria-label="Shuffle" disabled>⌁</button>
+            <button type="button" aria-label="Previous track" disabled>◂</button>
+            <button class="now-playing-play" type="button" aria-label="Play" disabled>▶</button>
+            <button type="button" aria-label="Next track" disabled>▸</button>
+            <button type="button" aria-label="Repeat" disabled>↻</button>
+          </div>
+        </div>
+
+      </section>
+
+
+
       <section class="recent-section" id="recent">
         <div class="section-header">
-          <div><p class="section-index">03 / YOUR RECENT ROTATION</p><h2>Played lately<span class="red-period">.</span></h2></div>
+          <div><p class="section-index">02 / YOUR RECENT ROTATION</p><h2>Played lately<span class="red-period">.</span></h2></div>
           <a class="text-arrow" href="#recent">Full history <span>↗</span></a>
         </div>
         <div class="track-table" role="table" aria-label="Recently played songs">
@@ -106,17 +122,7 @@
         <p class="draft-note">DEMO CONTENT — replace these rows with tracks returned by your backend.</p>
       </section>
 
-      <section class="library-section" id="library">
-        <div class="section-header">
-          <div><p class="section-index">04 / KEEP IT CLOSE</p><h2>Your library<span class="red-period">.</span></h2></div>
-          <span class="mono-label">MORE SOON</span>
-        </div>
-        <div class="library-grid">
-          <a class="library-tile tile-liked" href="#library"><span class="tile-index">A / 01</span><span class="tile-symbol">♥</span><strong>Liked tracks</strong><span class="tile-foot">A collection of your own.</span></a>
-          <a class="library-tile tile-playlist" href="#library"><span class="tile-index">A / 02</span><span class="tile-symbol">▤</span><strong>Playlists</strong><span class="tile-foot">Make a little room for a mood.</span></a>
-          <div class="library-tile tile-empty"><span class="tile-index">A / 03</span><span class="tile-symbol">＋</span><strong>Something new</strong><span class="tile-foot">More ways to listen, coming soon.</span></div>
-        </div>
-      </section>
+
     </main>
 
     <footer class="site-footer"><a class="footer-wordmark" href="index.html">MUSICOZY<span>.</span></a><span>LESS SCROLL. MORE SOUL.</span><span>© 2026 MUSICOZY</span></footer>
@@ -124,7 +130,10 @@
 
   <footer class="player-bar" id="player">
     <div class="player-current">
-      <div class="player-cover mini-art-one"><span>AH</span></div>
+      <div class="player-cover">
+        <img id="player-bar-thumbnail" alt="" hidden>
+        <span id="player-cover-placeholder">MZ</span>
+      </div>
       <div class="player-track-copy"><strong>Nothing playing</strong><span>Select a track to begin</span></div>
       <button class="like-button" type="button" aria-label="Like track" disabled>♡</button>
     </div>
@@ -138,5 +147,30 @@
     </div>
     <div class="player-side"><span class="mono-label">MZ / PLAYER 001</span><span class="volume-mark">VOL. ━━━━</span></div>
   </footer>
+
+  <script>
+    (() => {
+      const trigger = document.querySelector(".search-trigger");
+      const panel = document.getElementById("search-panel");
+      const input = document.getElementById("query");
+
+      if (!trigger || !panel) return;
+
+      trigger.addEventListener("click", () => {
+        const willOpen = panel.hidden;
+        panel.hidden = !willOpen;
+        trigger.setAttribute("aria-expanded", String(willOpen));
+        if (willOpen && input) input.focus();
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !panel.hidden) {
+          panel.hidden = true;
+          trigger.setAttribute("aria-expanded", "false");
+          trigger.focus();
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
