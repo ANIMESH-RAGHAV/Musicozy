@@ -13,17 +13,17 @@
 <body class="home-page">
   <div class="site-shell">
     <header class="masthead">
-      <a class="wordmark" href="index.html" aria-label="Musicozy home">MUSICOZY<span class="wordmark-dot">.</span></a>
+      <a class="wordmark" href="index.html" aria-label="Musicozy home">MUSICOZY</a>
       <nav class="main-nav" aria-label="Main navigation">
-        <a class="nav-current" href="index.html">Discover <span>01</span></a>
-        <a href="#recent">History <span>02</span></a>
+        <a class="nav-current" href="index.html">Discover</a>
+        <a href="#recent">History</a>
       </nav>
       <div class="header-tools" id="headerTools">
         <button class="search-trigger" type="button" aria-expanded="false" aria-controls="search-panel">
           <span class="search-glyph" aria-hidden="true">⌕</span> Search
         </button>
         <div id="authHeaderSlot">
-          <a class="account-link" href="login.html">Sign in <span aria-hidden="true">↗</span></a>
+          <a class="account-link" href="login.html">Sign in</a>
         </div>
       </div>
     </header>
@@ -42,23 +42,12 @@
         <div class="now-playing-art-panel">
           <div class="now-playing-artwork" id="now-playing-artwork">
             <img id="current-track-thumbnail" class="current-track-thumbnail"
-                 alt="Album artwork for the currently playing song" hidden>
-            <div class="artwork-placeholder" id="artwork-placeholder" aria-hidden="true">
-              <span class="artwork-stamp">MZ<br>001</span>
-              <span class="placeholder-sun"></span>
-              <span class="placeholder-orbit placeholder-orbit-one"></span>
-              <span class="placeholder-orbit placeholder-orbit-two"></span>
-              <span class="placeholder-caption">YOUR<br>SOUND</span>
-            </div>
+                 src="Login_page_image.png" alt="Musicozy music-note artwork">
           </div>
-          <span class="art-panel-index mono-label" id="art-panel-index-label">MZ / COVER 001</span>
         </div>
 
         <div class="now-playing-details">
-          <div class="now-playing-kicker section-index">01 / THE LISTENING ROOM</div>
-          <div class="track-status mono-label"><span class="status-dot"></span> NOW PLAYING</div>
-          <p class="now-playing-eyebrow mono-label">CURRENT ROTATION / TRACK 001</p>
-          <h1 id="now-playing-title">Nothing<br>playing<span class="red-period">.</span></h1>
+          <h1 id="now-playing-title">Nothing<br>playing</h1>
           <p class="now-playing-artist" id="now-playing-artist">Select a track to begin listening.</p>
 
           <div class="now-playing-progress" aria-label="Track progress">
@@ -70,7 +59,6 @@
           </div>
 
           <div class="now-playing-controls" aria-label="Playback controls">
-            <button type="button" aria-label="Shuffle" id="hero-shuffle-btn" title="Shuffle [S]" disabled>⌁</button>
             <button type="button" aria-label="Previous track" id="hero-prev-btn" title="Previous [←]" disabled>◂</button>
             <button class="now-playing-play" type="button" aria-label="Play" id="hero-play-btn" title="Play/Pause [Space]" disabled>▶</button>
             <button type="button" aria-label="Next track" id="hero-next-btn" title="Next [→]" disabled>▸</button>
@@ -81,48 +69,39 @@
 
       <section class="recent-section" id="recent">
         <div class="section-header">
-          <div><p class="section-index">02 / YOUR RECENT ROTATION</p><h2>Played lately<span class="red-period">.</span></h2></div>
-          <a class="text-arrow" href="#recent">Full history <span>↗</span></a>
+          <div><p class="section-index">02 / YOUR RECENT ROTATION</p><h2>Played lately</h2></div>
         </div>
         <div class="track-table" id="recent-track-table" role="table" aria-label="Recently played songs">
           <div class="track-row track-head" role="row">
-            <span role="columnheader">NO.</span><span role="columnheader">TRACK / ARTIST</span><span role="columnheader">ALBUM ART</span><span role="columnheader">LENGTH</span><span role="columnheader"></span>
+            <span role="columnheader">NO.</span><span role="columnheader">TRACK / ARTIST</span><span role="columnheader">LENGTH</span>
           </div>
           <div id="recent-tracks-container">
             <article class="track-row" role="row" style="cursor: pointer;" data-video-id="dX3k_QDnzHE" data-title="Midnight City" data-artist="M83" data-thumbnail="https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=200&h=200&fit=crop" data-duration="243">
               <span class="track-number" role="cell">01</span>
               <div class="track-name" role="cell"><strong>Midnight City</strong><span>M83</span></div>
-              <div class="mini-art mini-art-one" role="cell"><span>AFTER<br>HOURS</span></div>
               <span class="track-length" role="cell">04:03</span>
-              <button class="row-action" role="cell" type="button" aria-label="Play Midnight City" style="background:none;border:none;cursor:pointer;">↗</button>
             </article>
             <article class="track-row" role="row" style="cursor: pointer;" data-video-id="PEM0Vs8jf1w" data-title="Golden Hour" data-artist="JVKE" data-thumbnail="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=200&h=200&fit=crop" data-duration="209">
               <span class="track-number" role="cell">02</span>
               <div class="track-name" role="cell"><strong>Golden Hour</strong><span>JVKE</span></div>
-              <div class="mini-art mini-art-two" role="cell"><span>GOLDEN<br>HOUR</span></div>
               <span class="track-length" role="cell">03:29</span>
-              <button class="row-action" role="cell" type="button" aria-label="Play Golden Hour" style="background:none;border:none;cursor:pointer;">↗</button>
             </article>
             <article class="track-row" role="row" style="cursor: pointer;" data-video-id="450p7goxZqg" data-title="All of Me" data-artist="John Legend" data-thumbnail="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=200&h=200&fit=crop" data-duration="269">
               <span class="track-number" role="cell">03</span>
               <div class="track-name" role="cell"><strong>All of Me</strong><span>John Legend</span></div>
-              <div class="mini-art mini-art-three" role="cell"><span>BLUE<br>NOTES</span></div>
               <span class="track-length" role="cell">04:29</span>
-              <button class="row-action" role="cell" type="button" aria-label="Play All of Me" style="background:none;border:none;cursor:pointer;">↗</button>
             </article>
             <article class="track-row" role="row" style="cursor: pointer;" data-video-id="fJ9rUzIMcZQ" data-title="Bohemian Rhapsody" data-artist="Queen" data-thumbnail="https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?w=200&h=200&fit=crop" data-duration="354">
               <span class="track-number" role="cell">04</span>
               <div class="track-name" role="cell"><strong>Bohemian Rhapsody</strong><span>Queen</span></div>
-              <div class="mini-art mini-art-four" role="cell"><span>SLOW<br>DOWN</span></div>
               <span class="track-length" role="cell">05:54</span>
-              <button class="row-action" role="cell" type="button" aria-label="Play Bohemian Rhapsody" style="background:none;border:none;cursor:pointer;">↗</button>
             </article>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer"><a class="footer-wordmark" href="index.html">MUSICOZY<span>.</span></a><span>LESS SCROLL. MORE SOUL.</span><span>© 2026 MUSICOZY</span></footer>
+    <footer class="site-footer"><a class="footer-wordmark" href="index.html">MUSICOZY</a><span>LESS SCROLL. MORE SOUL.</span><span>© 2026 MUSICOZY</span></footer>
   </div>
 
   <footer class="player-bar" id="player">
@@ -132,7 +111,6 @@
         <span id="player-cover-placeholder">MZ</span>
       </div>
       <div class="player-track-copy"><strong>Nothing playing</strong><span>Select a track to begin</span></div>
-      <button class="like-button" id="bottom-like-btn" type="button" aria-label="Like track" title="Like track [L]" disabled>♡</button>
     </div>
     <div class="player-main">
       <div class="player-controls">
@@ -146,12 +124,6 @@
         <span id="bottom-time-dur">0:00</span>
       </div>
     </div>
-    <div class="player-side">
-      <span class="mono-label">MZ / PLAYER 001</span>
-      <button id="volume-btn" type="button" aria-label="Volume" title="Click to adjust volume / [M] to mute" style="background:none;border:1px solid #444;color:var(--paper);font-family:var(--mono);font-size:9px;cursor:pointer;padding:4px 8px;display:inline-flex;align-items:center;gap:4px;">
-        <span id="volume-icon">🔊</span> <span class="volume-mark" id="volume-text">VOL. ━━━━</span>
-      </button>
-    </div>
   </footer>
 
   <!-- Dedicated Audio Engine Slot (Streams audio in background; visual cover page is displayed in hero) -->
@@ -161,7 +133,6 @@
 
   <script>
     (() => {
-      // 1. User Authentication Session in Header
       const authHeaderSlot = document.getElementById("authHeaderSlot");
 
       async function renderAuthHeader() {
@@ -207,13 +178,12 @@
             window.location.reload();
           });
         } else {
-          authHeaderSlot.innerHTML = `<a class="account-link" href="login.html">Sign in <span aria-hidden="true">↗</span></a>`;
+          authHeaderSlot.innerHTML = `<a class="account-link" href="login.html">Sign in</a>`;
         }
       }
 
       renderAuthHeader();
 
-      // 2. Search Panel Toggle
       const trigger = document.querySelector(".search-trigger");
       const panel = document.getElementById("search-panel");
       const input = document.getElementById("query");
@@ -235,23 +205,13 @@
           }
         });
       }
-
-      // 3. Audio Player Engine & Controls
       let currentTrack = null;
       let activePlaylist = [];
       let activeIndex = 0;
       let isPlaying = false;
       let currentPlayTime = 0;
       let progressTimer = null;
-      let isShuffle = false;
-      let repeatMode = 'all'; // 'all', 'one', 'none'
-      let volumeLevels = [100, 75, 50, 25, 0];
-      let volumeLevel = parseInt(localStorage.getItem("musicozy_volume") || "100", 10);
-      let isMuted = false;
-      let likedTracks = new Set(JSON.parse(localStorage.getItem("musicozy_likes") || "[]"));
-
-      const volumeIcons = { 100: "🔊", 75: "🔉", 50: "🔉", 25: "🔈", 0: "🔇" };
-      const volumeBars = { 100: "VOL. ━━━━", 75: "VOL. ━━━─", 50: "VOL. ━━──", 25: "VOL. ━───", 0: "VOL. ────" };
+      let repeatMode = 'all';
 
       function formatSeconds(secs) {
         const m = Math.floor(secs / 60);
@@ -312,89 +272,6 @@
         updateProgressUI(currentPlayTime, dur);
       }
 
-      function updateLikeUI() {
-        const btn = document.getElementById("bottom-like-btn");
-        if (!btn || !currentTrack) return;
-        const isLiked = likedTracks.has(currentTrack.videoId);
-        btn.textContent = isLiked ? "♥" : "♡";
-        btn.style.color = isLiked ? "var(--red)" : "#d4d0c5";
-        btn.title = isLiked ? "Liked [L] — Click to unlike" : "Like track [L]";
-      }
-
-      function toggleLike() {
-        if (!currentTrack) return;
-        const isLiked = likedTracks.has(currentTrack.videoId);
-        if (isLiked) {
-          likedTracks.delete(currentTrack.videoId);
-        } else {
-          likedTracks.add(currentTrack.videoId);
-          try {
-            const userToken = localStorage.getItem("token") || sessionStorage.getItem("token");
-            const headers = { "Content-Type": "application/json" };
-            if (userToken) headers["Authorization"] = `Bearer ${userToken}`;
-            fetch("/api/history", {
-              method: "POST",
-              headers,
-              body: JSON.stringify({
-                trackId: currentTrack.videoId,
-                title: currentTrack.title,
-                artist: currentTrack.artist,
-                genre: currentTrack.genre || "studio",
-                coverUrl: currentTrack.thumbnail || currentTrack.coverUrl || "",
-                durationSeconds: currentTrack.durationSeconds || 210,
-                actionType: "like",
-                actionWeight: 1.0
-              })
-            });
-          } catch (e) {}
-        }
-        localStorage.setItem("musicozy_likes", JSON.stringify([...likedTracks]));
-        updateLikeUI();
-      }
-
-      function applyVolumeUI() {
-        const iconEl = document.getElementById("volume-icon");
-        const textEl = document.getElementById("volume-text");
-        const level = isMuted ? 0 : volumeLevel;
-
-        if (iconEl) iconEl.textContent = volumeIcons[level] || "🔊";
-        if (textEl) textEl.textContent = (isMuted ? "MUTE " : "") + (volumeBars[level] || "VOL. ━━━━");
-
-        sendPlayerCommand("setVolume", [level]);
-        if (level === 0 || isMuted) {
-          sendPlayerCommand("mute");
-        } else {
-          sendPlayerCommand("unMute");
-        }
-      }
-
-      function cycleVolume() {
-        if (isMuted) {
-          isMuted = false;
-        } else {
-          const curIdx = volumeLevels.indexOf(volumeLevel);
-          const nextIdx = (curIdx + 1) % volumeLevels.length;
-          volumeLevel = volumeLevels[nextIdx];
-          localStorage.setItem("musicozy_volume", volumeLevel);
-        }
-        applyVolumeUI();
-      }
-
-      function toggleMute() {
-        isMuted = !isMuted;
-        applyVolumeUI();
-      }
-
-      function toggleShuffle() {
-        isShuffle = !isShuffle;
-        const btn = document.getElementById("hero-shuffle-btn");
-        if (btn) {
-          btn.style.color = isShuffle ? "var(--red)" : "var(--ink)";
-          btn.style.fontWeight = isShuffle ? "900" : "400";
-          btn.title = isShuffle ? "Shuffle: ON [S]" : "Shuffle: OFF [S]";
-        }
-      }
-
       function toggleRepeat() {
         const modes = ["all", "one", "none"];
         const curIdx = modes.indexOf(repeatMode);
@@ -426,21 +303,15 @@
         const dur = track.durationSeconds || 210;
         const durFormatted = formatSeconds(dur);
 
-        // Update Hero Now Playing
         const titleEl = document.getElementById("now-playing-title");
         const artistEl = document.getElementById("now-playing-artist");
-        const heroArtworkBox = document.getElementById("now-playing-artwork");
-
         const safeTitle = (track.title || "Unknown Title").replace(/"/g, '&quot;');
         const safeArtist = (track.artist || "Unknown Artist").replace(/"/g, '&quot;');
 
         if (titleEl) titleEl.textContent = track.title;
         if (artistEl) artistEl.textContent = track.artist;
 
-        // Update Hero Album Artwork Cover Image (replaces video with visual cover)
         const heroThumb = document.getElementById("current-track-thumbnail");
-        const heroPlaceholder = document.getElementById("artwork-placeholder");
-        const artIndexLabel = document.getElementById("art-panel-index-label");
         const coverUrl = track.thumbnail || track.coverUrl || ('https://i.ytimg.com/vi/' + track.videoId + '/hqdefault.jpg');
 
         if (heroThumb) {
@@ -448,13 +319,7 @@
           heroThumb.alt = safeTitle + ' album cover';
           heroThumb.hidden = false;
           heroThumb.style.display = "block";
-          if (heroPlaceholder) heroPlaceholder.style.display = "none";
         }
-        if (artIndexLabel) {
-          artIndexLabel.textContent = "MZ / " + (safeArtist.toUpperCase().slice(0, 16));
-        }
-
-        // Render audio playback engine into dedicated background audio slot
         const audioEngine = document.getElementById("audio-engine-slot");
         if (audioEngine && track.videoId) {
           audioEngine.innerHTML = `
@@ -471,10 +336,8 @@
           `;
         }
 
-        // Enable hero buttons
         document.querySelectorAll(".now-playing-controls button").forEach(b => b.disabled = false);
 
-        // Update Bottom Player Bar
         const barTitle = document.querySelector(".player-track-copy strong");
         const barArtist = document.querySelector(".player-track-copy span");
         const barThumb = document.getElementById("player-bar-thumbnail");
@@ -490,16 +353,11 @@
           if (barPlaceholder) barPlaceholder.style.display = "none";
         }
 
-        // Enable bottom controls & like button
         document.querySelectorAll(".player-controls button").forEach(b => b.disabled = false);
-        const likeBtn = document.getElementById("bottom-like-btn");
-        if (likeBtn) likeBtn.disabled = false;
 
         isPlaying = true;
         setPlayIcons(true);
-        updateLikeUI();
 
-        // Reset progress timer & scrubbers
         clearInterval(progressTimer);
         currentPlayTime = 0;
         updateProgressUI(0, dur);
@@ -519,23 +377,16 @@
           }
         }, 1000);
 
-        // Apply volume
-        setTimeout(applyVolumeUI, 600);
-
-        // 1. Immediately update the recent tracks table in UI
         prependToRecentTracks(track);
 
-        // 2. Auto-log play to history backend
         logHistory(track);
       }
 
-      // Prepend track to Recent Rotation UI immediately
       function prependToRecentTracks(track) {
         if (!recentContainer) return;
         const vId = track.videoId || track.trackId;
         if (!vId) return;
 
-        // Remove existing duplicate row if present
         const existing = recentContainer.querySelector(`.track-row[data-video-id="${vId}"]`);
         if (existing) {
           existing.remove();
@@ -558,30 +409,24 @@
         row.innerHTML = `
           <span class="track-number" role="cell">01</span>
           <div class="track-name" role="cell"><strong>${safeTitle}</strong><span>${safeArtist}</span></div>
-          <div class="mini-art mini-art-one" role="cell"><span>RECENT</span></div>
           <span class="track-length" role="cell">${durFormatted}</span>
-          <button class="row-action" role="cell" type="button" aria-label="Play ${safeTitle}" style="background:none;border:none;cursor:pointer;">↗</button>
         `;
 
         row.addEventListener("click", () => {
           playTrack(track);
         });
 
-        // Insert at the beginning of the container
         recentContainer.insertBefore(row, recentContainer.firstChild);
 
-        // Maintain maximum 10 items
         while (recentContainer.children.length > 10) {
           recentContainer.removeChild(recentContainer.lastChild);
         }
 
-        // Re-number rows
         recentContainer.querySelectorAll(".track-row").forEach((r, idx) => {
           const numEl = r.querySelector(".track-number");
           if (numEl) numEl.textContent = (idx + 1).toString().padStart(2, "0");
         });
 
-        // Sync with localStorage
         try {
           const cached = JSON.parse(localStorage.getItem("musicozy_recent_history") || "[]");
           const filtered = cached.filter(item => (item.videoId || item.trackId) !== vId);
@@ -598,7 +443,6 @@
         } catch (e) {}
       }
 
-      // History logger to backend
       async function logHistory(track) {
         try {
           const userToken = localStorage.getItem("token") || sessionStorage.getItem("token");
@@ -622,7 +466,6 @@
         } catch (err) {}
       }
 
-      // Render a list of history records into Section 02
       function renderRecentHistory(historyList) {
         if (!recentContainer || !Array.isArray(historyList) || historyList.length === 0) return;
         recentContainer.innerHTML = "";
@@ -655,9 +498,7 @@
           row.innerHTML = `
             <span class="track-number" role="cell">${numStr}</span>
             <div class="track-name" role="cell"><strong>${safeTitle}</strong><span>${safeArtist}</span></div>
-            <div class="mini-art ${badge.cls}" role="cell"><span>${badge.text}</span></div>
             <span class="track-length" role="cell">${durFormatted}</span>
-            <button class="row-action" role="cell" type="button" aria-label="Play ${safeTitle}" style="background:none;border:none;cursor:pointer;">↗</button>
           `;
 
           row.addEventListener("click", () => {
@@ -676,7 +517,6 @@
         });
       }
 
-      // Play/Pause toggle
       function togglePlay() {
         if (!currentTrack) {
           const firstRow = document.querySelector(".track-row[data-video-id]");
@@ -698,7 +538,6 @@
       document.querySelector(".now-playing-play")?.addEventListener("click", togglePlay);
       document.getElementById("bottom-play-btn")?.addEventListener("click", togglePlay);
 
-      // Previous & Next Controls
       function playPrevTrack() {
         if (activePlaylist.length === 0) {
           const domRows = document.querySelectorAll(".track-row[data-video-id]");
@@ -743,20 +582,12 @@
           return;
         }
 
-        if (isShuffle && activePlaylist.length > 1) {
-          let nextIdx;
-          do {
-            nextIdx = Math.floor(Math.random() * activePlaylist.length);
-          } while (nextIdx === activeIndex);
-          activeIndex = nextIdx;
+        if (activeIndex < activePlaylist.length - 1) {
+          activeIndex++;
+        } else if (repeatMode === 'all') {
+          activeIndex = 0;
         } else {
-          if (activeIndex < activePlaylist.length - 1) {
-            activeIndex++;
-          } else if (repeatMode === 'all') {
-            activeIndex = 0;
-          } else {
-            return;
-          }
+          return;
         }
         playTrack(activePlaylist[activeIndex]);
       }
@@ -766,13 +597,8 @@
       document.getElementById("hero-prev-btn")?.addEventListener("click", playPrevTrack);
       document.getElementById("hero-next-btn")?.addEventListener("click", playNextTrack);
 
-      // Shuffle, Repeat, Like & Volume Controls
-      document.getElementById("hero-shuffle-btn")?.addEventListener("click", toggleShuffle);
       document.getElementById("hero-repeat-btn")?.addEventListener("click", toggleRepeat);
-      document.getElementById("bottom-like-btn")?.addEventListener("click", toggleLike);
-      document.getElementById("volume-btn")?.addEventListener("click", cycleVolume);
 
-      // Progress bar scrubbing / click to seek
       document.getElementById("hero-progress-track")?.addEventListener("click", (e) => {
         if (!currentTrack) return;
         const rect = e.currentTarget.getBoundingClientRect();
@@ -787,7 +613,6 @@
         seekTo(ratio * (currentTrack.durationSeconds || 210));
       });
 
-      // Keyboard shortcuts
       document.addEventListener("keydown", (e) => {
         if (["INPUT", "TEXTAREA"].includes(document.activeElement?.tagName)) return;
 
@@ -808,22 +633,12 @@
           } else {
             playPrevTrack();
           }
-        } else if (e.key === "m" || e.key === "M") {
-          e.preventDefault();
-          toggleMute();
-        } else if (e.key === "l" || e.key === "L") {
-          e.preventDefault();
-          toggleLike();
-        } else if (e.key === "s" || e.key === "S") {
-          e.preventDefault();
-          toggleShuffle();
         } else if (e.key === "r" || e.key === "R") {
           e.preventDefault();
           toggleRepeat();
         }
       });
 
-      // Wire existing demo rows
       function wireRows(container) {
         const rows = container.querySelectorAll(".track-row[data-video-id]");
         rows.forEach((row, idx) => {
@@ -844,7 +659,6 @@
       const recentContainer = document.getElementById("recent-tracks-container");
       if (recentContainer) wireRows(recentContainer);
 
-      // Load user history (localStorage cache + backend sync)
       async function loadUserHistory() {
         try {
           const cached = JSON.parse(localStorage.getItem("musicozy_recent_history") || "[]");
@@ -870,7 +684,6 @@
       }
       loadUserHistory();
 
-      // 4. Search Form Query Handling
       if (searchForm) {
         searchForm.addEventListener("submit", async (e) => {
           e.preventDefault();
@@ -886,16 +699,14 @@
               <div class="section-header">
                 <div>
                   <p class="section-index">SEARCH THE CATALOGUE</p>
-                  <h2 id="search-title">Results for "${query}"<span class="red-period">.</span></h2>
+                  <h2 id="search-title">Results for "${query}"</h2>
                 </div>
               </div>
               <div class="track-table" role="table">
                 <div class="track-row track-head" role="row">
                   <span role="columnheader">NO.</span>
                   <span role="columnheader">TRACK / ARTIST</span>
-                  <span role="columnheader">SOURCE</span>
                   <span role="columnheader">LENGTH</span>
-                  <span role="columnheader"></span>
                 </div>
                 <div id="search-tracks-container">
                   <p class="draft-note" style="padding: 16px 0;">Searching for official studio tracks (60s–400s)...</p>
@@ -905,7 +716,7 @@
             const main = document.querySelector("main");
             main.insertBefore(searchSec, main.firstChild);
           } else {
-            document.getElementById("search-title").innerHTML = `Results for "${query}"<span class="red-period">.</span>`;
+            document.getElementById("search-title").innerHTML = `Results for "${query}"`;
             document.getElementById("search-tracks-container").innerHTML = `<p class="draft-note" style="padding: 16px 0;">Searching for official studio tracks...</p>`;
           }
 
@@ -932,12 +743,8 @@
                 row.innerHTML = `
                   <span class="track-number" role="cell">${numStr}</span>
                   <div class="track-name" role="cell"><strong>${safeTitle}</strong><span>${safeArtist}</span></div>
-                  <div class="mini-art mini-art-two" role="cell" style="display:flex;align-items:center;justify-content:center;background:#1a1a1a;color:#fff;font-size:8px;font-weight:700;">
-                    <span>STUDIO</span>
-                  </div>
                   <span class="track-length" role="cell">${durFormatted}</span>
-                  <button class="row-action" role="cell" type="button" aria-label="Play ${safeTitle}" style="background:none;border:none;cursor:pointer;">↗</button>
-                `;
+                      `;
 
                 row.addEventListener("click", () => {
                   activeIndex = idx;

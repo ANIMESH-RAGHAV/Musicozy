@@ -18,7 +18,7 @@
 <div class="login-shell">
 
   <header class="login-header">
-    <a class="wordmark" href="index.html">MUSICOZY<span class="wordmark-dot">.</span></a>
+    <a class="wordmark" href="index.html">MUSICOZY</a>
     <a class="back-link" href="index.html">← BACK TO HOME</a>
   </header>
 
@@ -37,7 +37,7 @@
       <!-- Active Session View (shown when already logged in) -->
       <div id="active-session-view" style="display: none;">
         <p class="section-index">ACCOUNT ACCESS / ACTIVE SESSION</p>
-        <h2>Signed in<span class="red-period">.</span></h2>
+        <h2>Signed in</h2>
         <p class="login-subtitle">You are actively signed in to Musicozy.</p>
         <div style="border: 1px solid var(--ink); padding: 18px; margin: 24px 0; background: var(--paper); font-family: var(--mono); font-size: 11px;">
           <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
@@ -55,19 +55,16 @@
         </div>
 
         <div style="display: flex; flex-direction: column; gap: 12px;">
-          <a href="index.html" class="submit-button" style="text-decoration:none;">ENTER LISTENING ROOM <span>↗</span></a>
+          <a href="index.html" class="submit-button" style="text-decoration:none;">ENTER LISTENING ROOM</a>
           <button type="button" id="session-logout-btn" style="min-height: 46px; background: none; border: 1px solid var(--ink); font: 700 10px var(--mono); cursor: pointer; text-transform: uppercase;">SIGN OUT OF THIS ACCOUNT</button>
         </div>
-        <p class="signup-line" style="margin-top:24px;">NEED TO SWITCH? <a href="#" id="session-switch-btn">SIGN IN WITH ANOTHER ACCOUNT ↗</a></p>
+        <p class="signup-line" style="margin-top:24px;">NEED TO SWITCH? <a href="#" id="session-switch-btn">SIGN IN WITH ANOTHER ACCOUNT</a></p>
       </div>
 
       <!-- Auth Form Container (Sign In / Sign Up) -->
       <div id="auth-form-container">
-        <p class="section-index" id="auth-section-index">Enter into Musicozy</p>
 
-        <h2 id="auth-title">Sign in<span class="red-period">.</span></h2>
-
-        <p class="login-subtitle" id="auth-subtitle">Hello user! Let's put something on.</p>
+        <h2 id="auth-title">Sign in</h2>
 
         <div id="auth-message" style="display: none; padding: 10px; margin-bottom: 14px; font-size: 11px; font-family: var(--mono); border: 1px solid var(--ink);"></div>
 
@@ -101,26 +98,20 @@
             required
           >
 
-          <div class="form-options" id="form-options">
-            <label class="remember-label"><input type="checkbox" id="remember" name="remember" checked> REMEMBER ME</label>
-            <a href="#" onclick="alert('Password reset instructions dispatched to your email.'); return false;">FORGOT PASSWORD?</a>
-          </div>
-
           <button class="submit-button" type="submit" id="submit-button">
-            SIGN IN <span>↗</span>
+            SIGN IN
           </button>
 
         </form>
 
-        <p class="signup-line" id="toggle-line">NEW HERE? <a href="#" id="toggle-auth-btn">CREATE AN ACCOUNT ↗</a></p>
-        <p class="login-disclaimer">Connected to Musicozy Application API.</p>
+        <p class="signup-line" id="toggle-line">NEW HERE? <a href="#" id="toggle-auth-btn">CREATE AN ACCOUNT</a></p>
       </div>
 
     </section>
 
   </main>
 
-  <footer class="login-footer"><span>MUSICOZY / LISTEN CLOSER</span><span>© 2026</span></footer>
+  <footer class="login-footer"><span>MUSICOZY / LISTEN CLOSER</span><span>NIHAR. AYUSH. ARPIT. ANIMESH.</span></footer>
 </div>
 
 <script>
@@ -135,10 +126,7 @@
 
   const usernameGroup = document.getElementById('username-group');
   const usernameInput = document.getElementById('username');
-  const formOptions = document.getElementById('form-options');
-  const rememberCheckbox = document.getElementById('remember');
   const authTitle = document.getElementById('auth-title');
-  const authSubtitle = document.getElementById('auth-subtitle');
   const authMessage = document.getElementById('auth-message');
   const submitButton = document.getElementById('submit-button');
   const toggleAuthBtn = document.getElementById('toggle-auth-btn');
@@ -190,19 +178,17 @@
     authMessage.style.display = 'none';
 
     if (signupMode) {
-      authTitle.innerHTML = 'Sign up<span class="red-period">.</span>';
-      authSubtitle.textContent = 'Join Musicozy. Discover and stream studio tracks.';
+      authTitle.textContent = 'Sign up';
       usernameGroup.style.display = 'block';
       usernameInput.required = true;
-      submitButton.innerHTML = 'CREATE ACCOUNT <span>↗</span>';
-      toggleLine.innerHTML = 'ALREADY HAVE AN ACCOUNT? <a href="#" id="toggle-auth-btn">SIGN IN ↗</a>';
+      submitButton.innerHTML = 'CREATE ACCOUNT';
+      toggleLine.innerHTML = 'ALREADY HAVE AN ACCOUNT? <a href="#" id="toggle-auth-btn">SIGN IN</a>';
     } else {
-      authTitle.innerHTML = 'Sign in<span class="red-period">.</span>';
-      authSubtitle.textContent = "Hello user! Let's put something on.";
+      authTitle.textContent = 'Sign in';
       usernameGroup.style.display = 'none';
       usernameInput.required = false;
-      submitButton.innerHTML = 'SIGN IN <span>↗</span>';
-      toggleLine.innerHTML = 'NEW HERE? <a href="#" id="toggle-auth-btn">CREATE AN ACCOUNT ↗</a>';
+      submitButton.innerHTML = 'SIGN IN';
+      toggleLine.innerHTML = 'NEW HERE? <a href="#" id="toggle-auth-btn">CREATE AN ACCOUNT</a>';
     }
 
     // Re-bind toggle click listener
@@ -247,10 +233,6 @@
         if (data.user) {
           localStorage.setItem('user', JSON.stringify(data.user));
         }
-        if (rememberCheckbox && !rememberCheckbox.checked) {
-          sessionStorage.setItem('token', data.token);
-          if (data.user) sessionStorage.setItem('user', JSON.stringify(data.user));
-        }
 
         authMessage.style.display = 'block';
         authMessage.style.background = '#dcfce7';
@@ -269,7 +251,7 @@
         authMessage.style.color = '#b91c1c';
 
         if (!signupMode && response.status === 401) {
-          authMessage.innerHTML = (data.message || 'Invalid credentials.') + ' New here? <a href="#" id="inline-switch-signup" style="color:var(--ink);font-weight:700;">Create an account ↗</a>';
+          authMessage.innerHTML = (data.message || 'Invalid credentials.') + ' New here? <a href="#" id="inline-switch-signup" style="color:var(--ink);font-weight:700;">Create an account</a>';
           document.getElementById('inline-switch-signup')?.addEventListener('click', (ev) => {
             ev.preventDefault();
             setSignupMode(true);
