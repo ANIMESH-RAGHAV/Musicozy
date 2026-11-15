@@ -78,6 +78,7 @@ function formatTracks(entries) {
       videoId: item.id.videoId,
       title: item.snippet.title,
       channelTitle: item.snippet.channelTitle,
+      thumbnail: item.snippet.thumbnails.high.url,  //  Choosing high for now, If Image is not displayed properly, change it to medium or low.
       publishedAt: item.snippet.publishedAt,
       durationSeconds: entry.seconds
     };
@@ -97,7 +98,7 @@ app.get('/api/search', async function(req, res) {
         part: 'snippet',
         q: query + ' official audio',
         type: 'video',
-        videoCategoryId: '10', 
+        videoCategoryId: '10',
         maxResults: 25,        
         key: API_KEY
       }
