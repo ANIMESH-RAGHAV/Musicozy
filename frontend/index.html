@@ -18,28 +18,29 @@
         <a class="nav-current" href="index.html">Discover <span>01</span></a>
         <a href="#recent">History <span>02</span></a>
       </nav>
-      <div class="header-tools">
+      <div class="header-tools" id="headerTools">
         <button class="search-trigger" type="button" aria-expanded="false" aria-controls="search-panel">
           <span class="search-glyph" aria-hidden="true">⌕</span> Search
         </button>
-        <a class="account-link" href="login.html">Sign in <span aria-hidden="true">↗</span></a>
+        <div id="authHeaderSlot">
+          <a class="account-link" href="login.html">Sign in <span aria-hidden="true">↗</span></a>
+        </div>
       </div>
     </header>
 
-          <section class="search-band search-panel" id="search-panel" hidden>
-        <div class="search-intro"><span class="section-index">FIND A TRACK</span><span class="mono-label">SEARCH THE CATALOGUE</span></div>
-        <form class="search-form" action="/api/search" method="get">
-          <label class="visually-hidden" for="query">Search songs and artists</label>
-          <input id="query" type="search" name="q" placeholder="What do you want to hear?" required>
-          <button type="submit" aria-label="Search">SEARCH <span>↗</span></button>
-        </form>
-      </section>
+    <section class="search-band search-panel" id="search-panel" hidden>
+      <div class="search-intro"><span class="section-index">FIND A TRACK</span><span class="mono-label">SEARCH THE CATALOGUE</span></div>
+      <form class="search-form" action="/api/search" method="get">
+        <label class="visually-hidden" for="query">Search songs and artists</label>
+        <input id="query" type="search" name="q" placeholder="What do you want to hear?" required>
+        <button type="submit" aria-label="Search">SEARCH <span>↗</span></button>
+      </form>
+    </section>
 
     <main>
       <section class="now-playing" aria-labelledby="now-playing-title">
         <div class="now-playing-art-panel">
           <div class="now-playing-artwork" id="now-playing-artwork">
-            <!-- Set this image's src to the active track's thumbnail URL when a track starts. -->
             <img id="current-track-thumbnail" class="current-track-thumbnail"
                  alt="Album artwork for the currently playing song" hidden>
             <div class="artwork-placeholder" id="artwork-placeholder" aria-hidden="true">
@@ -50,7 +51,7 @@
               <span class="placeholder-caption">YOUR<br>SOUND</span>
             </div>
           </div>
-          <span class="art-panel-index mono-label">MZ / COVER 001</span>
+          <span class="art-panel-index mono-label" id="art-panel-index-label">MZ / COVER 001</span>
         </div>
 
         <div class="now-playing-details">
@@ -61,7 +62,7 @@
           <p class="now-playing-artist" id="now-playing-artist">Select a track to begin listening.</p>
 
           <div class="now-playing-progress" aria-label="Track progress">
-            <div class="now-playing-progress-track"><span id="now-playing-progress-fill"></span></div>
+            <div class="now-playing-progress-track" id="hero-progress-track" style="cursor: pointer;" title="Click to seek"><span id="now-playing-progress-fill"></span></div>
             <div class="now-playing-time mono-label">
               <span id="now-playing-current-time">0:00</span>
               <span id="now-playing-duration">0:00</span>
@@ -69,60 +70,56 @@
           </div>
 
           <div class="now-playing-controls" aria-label="Playback controls">
-            <button type="button" aria-label="Shuffle" disabled>⌁</button>
-            <button type="button" aria-label="Previous track" disabled>◂</button>
-            <button class="now-playing-play" type="button" aria-label="Play" disabled>▶</button>
-            <button type="button" aria-label="Next track" disabled>▸</button>
-            <button type="button" aria-label="Repeat" disabled>↻</button>
+            <button type="button" aria-label="Shuffle" id="hero-shuffle-btn" title="Shuffle [S]" disabled>⌁</button>
+            <button type="button" aria-label="Previous track" id="hero-prev-btn" title="Previous [←]" disabled>◂</button>
+            <button class="now-playing-play" type="button" aria-label="Play" id="hero-play-btn" title="Play/Pause [Space]" disabled>▶</button>
+            <button type="button" aria-label="Next track" id="hero-next-btn" title="Next [→]" disabled>▸</button>
+            <button type="button" aria-label="Repeat" id="hero-repeat-btn" title="Repeat [R]" disabled>↻</button>
           </div>
         </div>
-
       </section>
-
-
 
       <section class="recent-section" id="recent">
         <div class="section-header">
           <div><p class="section-index">02 / YOUR RECENT ROTATION</p><h2>Played lately<span class="red-period">.</span></h2></div>
           <a class="text-arrow" href="#recent">Full history <span>↗</span></a>
         </div>
-        <div class="track-table" role="table" aria-label="Recently played songs">
+        <div class="track-table" id="recent-track-table" role="table" aria-label="Recently played songs">
           <div class="track-row track-head" role="row">
             <span role="columnheader">NO.</span><span role="columnheader">TRACK / ARTIST</span><span role="columnheader">ALBUM ART</span><span role="columnheader">LENGTH</span><span role="columnheader"></span>
           </div>
-          <article class="track-row" role="row">
-            <span class="track-number" role="cell">01</span>
-            <div class="track-name" role="cell"><strong>Midnight City</strong><span>M83</span></div>
-            <div class="mini-art mini-art-one" role="cell"><span>AFTER<br>HOURS</span></div>
-            <span class="track-length" role="cell">04:03</span>
-            <a class="row-action" href="#player" role="cell" aria-label="Select Midnight City">↗</a>
-          </article>
-          <article class="track-row" role="row">
-            <span class="track-number" role="cell">02</span>
-            <div class="track-name" role="cell"><strong>Golden</strong><span>Harry Styles</span></div>
-            <div class="mini-art mini-art-two" role="cell"><span>GOLDEN<br>HOUR</span></div>
-            <span class="track-length" role="cell">03:28</span>
-            <a class="row-action" href="#player" role="cell" aria-label="Select Golden">↗</a>
-          </article>
-          <article class="track-row" role="row">
-            <span class="track-number" role="cell">03</span>
-            <div class="track-name" role="cell"><strong>Blue Lights</strong><span>Jorja Smith</span></div>
-            <div class="mini-art mini-art-three" role="cell"><span>BLUE<br>NOTES</span></div>
-            <span class="track-length" role="cell">04:10</span>
-            <a class="row-action" href="#player" role="cell" aria-label="Select Blue Lights">↗</a>
-          </article>
-          <article class="track-row" role="row">
-            <span class="track-number" role="cell">04</span>
-            <div class="track-name" role="cell"><strong>Sunset Lover</strong><span>Petit Biscuit</span></div>
-            <div class="mini-art mini-art-four" role="cell"><span>SLOW<br>DOWN</span></div>
-            <span class="track-length" role="cell">03:57</span>
-            <a class="row-action" href="#player" role="cell" aria-label="Select Sunset Lover">↗</a>
-          </article>
+          <div id="recent-tracks-container">
+            <article class="track-row" role="row" style="cursor: pointer;" data-video-id="dX3k_QDnzHE" data-title="Midnight City" data-artist="M83" data-thumbnail="https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=200&h=200&fit=crop" data-duration="243">
+              <span class="track-number" role="cell">01</span>
+              <div class="track-name" role="cell"><strong>Midnight City</strong><span>M83</span></div>
+              <div class="mini-art mini-art-one" role="cell"><span>AFTER<br>HOURS</span></div>
+              <span class="track-length" role="cell">04:03</span>
+              <button class="row-action" role="cell" type="button" aria-label="Play Midnight City" style="background:none;border:none;cursor:pointer;">↗</button>
+            </article>
+            <article class="track-row" role="row" style="cursor: pointer;" data-video-id="PEM0Vs8jf1w" data-title="Golden Hour" data-artist="JVKE" data-thumbnail="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=200&h=200&fit=crop" data-duration="209">
+              <span class="track-number" role="cell">02</span>
+              <div class="track-name" role="cell"><strong>Golden Hour</strong><span>JVKE</span></div>
+              <div class="mini-art mini-art-two" role="cell"><span>GOLDEN<br>HOUR</span></div>
+              <span class="track-length" role="cell">03:29</span>
+              <button class="row-action" role="cell" type="button" aria-label="Play Golden Hour" style="background:none;border:none;cursor:pointer;">↗</button>
+            </article>
+            <article class="track-row" role="row" style="cursor: pointer;" data-video-id="450p7goxZqg" data-title="All of Me" data-artist="John Legend" data-thumbnail="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=200&h=200&fit=crop" data-duration="269">
+              <span class="track-number" role="cell">03</span>
+              <div class="track-name" role="cell"><strong>All of Me</strong><span>John Legend</span></div>
+              <div class="mini-art mini-art-three" role="cell"><span>BLUE<br>NOTES</span></div>
+              <span class="track-length" role="cell">04:29</span>
+              <button class="row-action" role="cell" type="button" aria-label="Play All of Me" style="background:none;border:none;cursor:pointer;">↗</button>
+            </article>
+            <article class="track-row" role="row" style="cursor: pointer;" data-video-id="fJ9rUzIMcZQ" data-title="Bohemian Rhapsody" data-artist="Queen" data-thumbnail="https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?w=200&h=200&fit=crop" data-duration="354">
+              <span class="track-number" role="cell">04</span>
+              <div class="track-name" role="cell"><strong>Bohemian Rhapsody</strong><span>Queen</span></div>
+              <div class="mini-art mini-art-four" role="cell"><span>SLOW<br>DOWN</span></div>
+              <span class="track-length" role="cell">05:54</span>
+              <button class="row-action" role="cell" type="button" aria-label="Play Bohemian Rhapsody" style="background:none;border:none;cursor:pointer;">↗</button>
+            </article>
+          </div>
         </div>
-        <p class="draft-note">DEMO CONTENT — replace these rows with tracks returned by your backend.</p>
       </section>
-
-
     </main>
 
     <footer class="site-footer"><a class="footer-wordmark" href="index.html">MUSICOZY<span>.</span></a><span>LESS SCROLL. MORE SOUL.</span><span>© 2026 MUSICOZY</span></footer>
@@ -131,45 +128,838 @@
   <footer class="player-bar" id="player">
     <div class="player-current">
       <div class="player-cover">
-        <img id="player-bar-thumbnail" alt="" hidden>
+        <img id="player-bar-thumbnail" alt="" hidden style="width:100%;height:100%;object-fit:cover;">
         <span id="player-cover-placeholder">MZ</span>
       </div>
       <div class="player-track-copy"><strong>Nothing playing</strong><span>Select a track to begin</span></div>
-      <button class="like-button" type="button" aria-label="Like track" disabled>♡</button>
+      <button class="like-button" id="bottom-like-btn" type="button" aria-label="Like track" title="Like track [L]" disabled>♡</button>
     </div>
     <div class="player-main">
       <div class="player-controls">
-        <button type="button" aria-label="Previous track" disabled>◂</button>
-        <button class="player-play" type="button" aria-label="Play" disabled>▶</button>
-        <button type="button" aria-label="Next track" disabled>▸</button>
+        <button type="button" aria-label="Previous track" id="bottom-prev-btn" title="Previous [←]" disabled>◂</button>
+        <button class="player-play" type="button" aria-label="Play" id="bottom-play-btn" title="Play/Pause [Space]" disabled>▶</button>
+        <button type="button" aria-label="Next track" id="bottom-next-btn" title="Next [→]" disabled>▸</button>
       </div>
-      <div class="player-progress"><span>0:00</span><div class="progress-line"><i></i></div><span>0:00</span></div>
+      <div class="player-progress">
+        <span id="bottom-time-current">0:00</span>
+        <div class="progress-line" id="bottom-progress-bar" style="cursor: pointer; position: relative; padding: 4px 0;" title="Click to seek"><i id="bottom-progress-fill" style="width: 0%; height: 2px; display: block;"></i></div>
+        <span id="bottom-time-dur">0:00</span>
+      </div>
     </div>
-    <div class="player-side"><span class="mono-label">MZ / PLAYER 001</span><span class="volume-mark">VOL. ━━━━</span></div>
+    <div class="player-side">
+      <span class="mono-label">MZ / PLAYER 001</span>
+      <button id="volume-btn" type="button" aria-label="Volume" title="Click to adjust volume / [M] to mute" style="background:none;border:1px solid #444;color:var(--paper);font-family:var(--mono);font-size:9px;cursor:pointer;padding:4px 8px;display:inline-flex;align-items:center;gap:4px;">
+        <span id="volume-icon">🔊</span> <span class="volume-mark" id="volume-text">VOL. ━━━━</span>
+      </button>
+    </div>
   </footer>
+
+  <!-- Dedicated Audio Engine Slot (Streams audio in background; visual cover page is displayed in hero) -->
+  <div id="audio-engine-slot" style="position: fixed; width: 200px; height: 150px; opacity: 0.001; pointer-events: none; right: 0; bottom: 0; z-index: -999; overflow: hidden;" aria-hidden="true">
+    <iframe id="active-audio-frame" width="200" height="150" src="" frameborder="0" allow="autoplay; encrypted-media"></iframe>
+  </div>
 
   <script>
     (() => {
+      // 1. User Authentication Session in Header
+      const authHeaderSlot = document.getElementById("authHeaderSlot");
+
+      async function renderAuthHeader() {
+        if (!authHeaderSlot) return;
+        const token = localStorage.getItem("token") || sessionStorage.getItem("token");
+        const userStr = localStorage.getItem("user") || sessionStorage.getItem("user");
+        let user = JSON.parse(userStr || "null");
+
+        if (token) {
+          if (!user) {
+            try {
+              const res = await fetch("/api/users/profile", {
+                headers: { "Authorization": `Bearer ${token}` }
+              });
+              if (res.ok) {
+                const data = await res.json();
+                user = data.user;
+                localStorage.setItem("user", JSON.stringify(user));
+              }
+            } catch (e) {}
+          }
+
+          const displayName = (user && (user.username || user.email)) ? (user.username || user.email) : "MY ACCOUNT";
+
+          authHeaderSlot.innerHTML = `
+            <div class="user-session-badge" style="display:inline-flex;align-items:center;gap:8px;">
+              <span class="account-user-badge" style="display:inline-flex;align-items:center;padding:10px 13px;border:1px solid var(--ink);font-size:10px;font-weight:800;text-transform:uppercase;font-family:var(--mono);background:var(--paper);letter-spacing:0.02em;">
+                <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#16a34a;margin-right:6px;"></span>
+                ${displayName}
+              </span>
+              <button type="button" id="signOutBtn" style="padding:10px 12px;border:1px solid var(--ink);background:transparent;color:var(--red);font-size:10px;font-weight:800;font-family:var(--mono);cursor:pointer;text-transform:uppercase;display:inline-flex;align-items:center;gap:4px;" title="Sign out of Musicozy">LOGOUT ↗</button>
+            </div>
+          `;
+
+          document.getElementById("signOutBtn")?.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            localStorage.removeItem("token");
+            localStorage.removeItem("user");
+            sessionStorage.removeItem("token");
+            sessionStorage.removeItem("user");
+            renderAuthHeader();
+            window.location.reload();
+          });
+        } else {
+          authHeaderSlot.innerHTML = `<a class="account-link" href="login.html">Sign in <span aria-hidden="true">↗</span></a>`;
+        }
+      }
+
+      renderAuthHeader();
+
+      // 2. Search Panel Toggle
       const trigger = document.querySelector(".search-trigger");
       const panel = document.getElementById("search-panel");
       const input = document.getElementById("query");
+      const searchForm = document.querySelector(".search-form");
 
-      if (!trigger || !panel) return;
+      if (trigger && panel) {
+        trigger.addEventListener("click", () => {
+          const willOpen = panel.hidden;
+          panel.hidden = !willOpen;
+          trigger.setAttribute("aria-expanded", String(willOpen));
+          if (willOpen && input) input.focus();
+        });
 
-      trigger.addEventListener("click", () => {
-        const willOpen = panel.hidden;
-        panel.hidden = !willOpen;
-        trigger.setAttribute("aria-expanded", String(willOpen));
-        if (willOpen && input) input.focus();
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && !panel.hidden) {
+            panel.hidden = true;
+            trigger.setAttribute("aria-expanded", "false");
+            trigger.focus();
+          }
+        });
+      }
+
+      // 3. Audio Player Engine & Controls
+      let currentTrack = null;
+      let activePlaylist = [];
+      let activeIndex = 0;
+      let isPlaying = false;
+      let currentPlayTime = 0;
+      let progressTimer = null;
+      let isShuffle = false;
+      let repeatMode = 'all'; // 'all', 'one', 'none'
+      let volumeLevels = [100, 75, 50, 25, 0];
+      let volumeLevel = parseInt(localStorage.getItem("musicozy_volume") || "100", 10);
+      let isMuted = false;
+      let likedTracks = new Set(JSON.parse(localStorage.getItem("musicozy_likes") || "[]"));
+
+      const volumeIcons = { 100: "🔊", 75: "🔉", 50: "🔉", 25: "🔈", 0: "🔇" };
+      const volumeBars = { 100: "VOL. ━━━━", 75: "VOL. ━━━─", 50: "VOL. ━━──", 25: "VOL. ━───", 0: "VOL. ────" };
+
+      function formatSeconds(secs) {
+        const m = Math.floor(secs / 60);
+        const s = secs % 60;
+        return `${m}:${s.toString().padStart(2, '0')}`;
+      }
+
+      function sendPlayerCommand(func, args) {
+        const frame = document.getElementById("active-audio-frame");
+        if (frame && frame.contentWindow) {
+          const msg = JSON.stringify({
+            event: "command",
+            func: func,
+            args: args !== undefined ? args : ""
+          });
+          frame.contentWindow.postMessage(msg, "*");
+        }
+      }
+
+      function setPlayIcons(playing) {
+        const heroPlay = document.querySelector(".now-playing-play");
+        const bottomPlay = document.getElementById("bottom-play-btn");
+        const icon = playing ? "❚❚" : "▶";
+        if (heroPlay) heroPlay.textContent = icon;
+        if (bottomPlay) bottomPlay.textContent = icon;
+      }
+
+      function updateProgressUI(currentSecs, totalSecs) {
+        const safeTotal = totalSecs > 0 ? totalSecs : 210;
+        const safeCur = Math.min(Math.max(0, currentSecs), safeTotal);
+        const pct = ((safeCur / safeTotal) * 100).toFixed(2) + "%";
+
+        const curFormatted = formatSeconds(Math.floor(safeCur));
+        const durFormatted = formatSeconds(Math.floor(safeTotal));
+
+        const heroCurEl = document.getElementById("now-playing-current-time");
+        const heroDurEl = document.getElementById("now-playing-duration");
+        const heroFill = document.getElementById("now-playing-progress-fill");
+
+        const bottomCurEl = document.getElementById("bottom-time-current");
+        const bottomDurEl = document.getElementById("bottom-time-dur");
+        const bottomFill = document.getElementById("bottom-progress-fill");
+
+        if (heroCurEl) heroCurEl.textContent = curFormatted;
+        if (heroDurEl) heroDurEl.textContent = durFormatted;
+        if (heroFill) heroFill.style.width = pct;
+
+        if (bottomCurEl) bottomCurEl.textContent = curFormatted;
+        if (bottomDurEl) bottomDurEl.textContent = durFormatted;
+        if (bottomFill) bottomFill.style.width = pct;
+      }
+
+      function seekTo(seconds) {
+        if (!currentTrack) return;
+        const dur = currentTrack.durationSeconds || 210;
+        currentPlayTime = Math.max(0, Math.min(seconds, dur));
+        sendPlayerCommand("seekTo", [currentPlayTime, true]);
+        updateProgressUI(currentPlayTime, dur);
+      }
+
+      function updateLikeUI() {
+        const btn = document.getElementById("bottom-like-btn");
+        if (!btn || !currentTrack) return;
+        const isLiked = likedTracks.has(currentTrack.videoId);
+        btn.textContent = isLiked ? "♥" : "♡";
+        btn.style.color = isLiked ? "var(--red)" : "#d4d0c5";
+        btn.title = isLiked ? "Liked [L] — Click to unlike" : "Like track [L]";
+      }
+
+      function toggleLike() {
+        if (!currentTrack) return;
+        const isLiked = likedTracks.has(currentTrack.videoId);
+        if (isLiked) {
+          likedTracks.delete(currentTrack.videoId);
+        } else {
+          likedTracks.add(currentTrack.videoId);
+          try {
+            const userToken = localStorage.getItem("token") || sessionStorage.getItem("token");
+            const headers = { "Content-Type": "application/json" };
+            if (userToken) headers["Authorization"] = `Bearer ${userToken}`;
+            fetch("/api/history", {
+              method: "POST",
+              headers,
+              body: JSON.stringify({
+                trackId: currentTrack.videoId,
+                title: currentTrack.title,
+                artist: currentTrack.artist,
+                genre: currentTrack.genre || "studio",
+                coverUrl: currentTrack.thumbnail || currentTrack.coverUrl || "",
+                durationSeconds: currentTrack.durationSeconds || 210,
+                actionType: "like",
+                actionWeight: 1.0
+              })
+            });
+          } catch (e) {}
+        }
+        localStorage.setItem("musicozy_likes", JSON.stringify([...likedTracks]));
+        updateLikeUI();
+      }
+
+      function applyVolumeUI() {
+        const iconEl = document.getElementById("volume-icon");
+        const textEl = document.getElementById("volume-text");
+        const level = isMuted ? 0 : volumeLevel;
+
+        if (iconEl) iconEl.textContent = volumeIcons[level] || "🔊";
+        if (textEl) textEl.textContent = (isMuted ? "MUTE " : "") + (volumeBars[level] || "VOL. ━━━━");
+
+        sendPlayerCommand("setVolume", [level]);
+        if (level === 0 || isMuted) {
+          sendPlayerCommand("mute");
+        } else {
+          sendPlayerCommand("unMute");
+        }
+      }
+
+      function cycleVolume() {
+        if (isMuted) {
+          isMuted = false;
+        } else {
+          const curIdx = volumeLevels.indexOf(volumeLevel);
+          const nextIdx = (curIdx + 1) % volumeLevels.length;
+          volumeLevel = volumeLevels[nextIdx];
+          localStorage.setItem("musicozy_volume", volumeLevel);
+        }
+        applyVolumeUI();
+      }
+
+      function toggleMute() {
+        isMuted = !isMuted;
+        applyVolumeUI();
+      }
+
+      function toggleShuffle() {
+        isShuffle = !isShuffle;
+        const btn = document.getElementById("hero-shuffle-btn");
+        if (btn) {
+          btn.style.color = isShuffle ? "var(--red)" : "var(--ink)";
+          btn.style.fontWeight = isShuffle ? "900" : "400";
+          btn.title = isShuffle ? "Shuffle: ON [S]" : "Shuffle: OFF [S]";
+        }
+      }
+
+      function toggleRepeat() {
+        const modes = ["all", "one", "none"];
+        const curIdx = modes.indexOf(repeatMode);
+        repeatMode = modes[(curIdx + 1) % modes.length];
+
+        const btn = document.getElementById("hero-repeat-btn");
+        if (btn) {
+          if (repeatMode === "all") {
+            btn.textContent = "↻";
+            btn.style.color = "var(--red)";
+            btn.style.opacity = "1";
+            btn.title = "Repeat: ALL [R]";
+          } else if (repeatMode === "one") {
+            btn.textContent = "↻¹";
+            btn.style.color = "var(--red)";
+            btn.style.opacity = "1";
+            btn.title = "Repeat: TRACK [R]";
+          } else {
+            btn.textContent = "↻";
+            btn.style.color = "var(--ink)";
+            btn.style.opacity = "0.5";
+            btn.title = "Repeat: OFF [R]";
+          }
+        }
+      }
+
+      function playTrack(track) {
+        currentTrack = track;
+        const dur = track.durationSeconds || 210;
+        const durFormatted = formatSeconds(dur);
+
+        // Update Hero Now Playing
+        const titleEl = document.getElementById("now-playing-title");
+        const artistEl = document.getElementById("now-playing-artist");
+        const heroArtworkBox = document.getElementById("now-playing-artwork");
+
+        const safeTitle = (track.title || "Unknown Title").replace(/"/g, '&quot;');
+        const safeArtist = (track.artist || "Unknown Artist").replace(/"/g, '&quot;');
+
+        if (titleEl) titleEl.textContent = track.title;
+        if (artistEl) artistEl.textContent = track.artist;
+
+        // Update Hero Album Artwork Cover Image (replaces video with visual cover)
+        const heroThumb = document.getElementById("current-track-thumbnail");
+        const heroPlaceholder = document.getElementById("artwork-placeholder");
+        const artIndexLabel = document.getElementById("art-panel-index-label");
+        const coverUrl = track.thumbnail || track.coverUrl || ('https://i.ytimg.com/vi/' + track.videoId + '/hqdefault.jpg');
+
+        if (heroThumb) {
+          heroThumb.src = coverUrl;
+          heroThumb.alt = safeTitle + ' album cover';
+          heroThumb.hidden = false;
+          heroThumb.style.display = "block";
+          if (heroPlaceholder) heroPlaceholder.style.display = "none";
+        }
+        if (artIndexLabel) {
+          artIndexLabel.textContent = "MZ / " + (safeArtist.toUpperCase().slice(0, 16));
+        }
+
+        // Render audio playback engine into dedicated background audio slot
+        const audioEngine = document.getElementById("audio-engine-slot");
+        if (audioEngine && track.videoId) {
+          audioEngine.innerHTML = `
+            <iframe 
+              id="active-audio-frame"
+              width="200" 
+              height="150" 
+              src="https://www.youtube.com/embed/${track.videoId}?autoplay=1&enablejsapi=1" 
+              title="${safeTitle}"
+              frameborder="0" 
+              allow="autoplay; encrypted-media" 
+              style="width:200px;height:150px;border:0;">
+            </iframe>
+          `;
+        }
+
+        // Enable hero buttons
+        document.querySelectorAll(".now-playing-controls button").forEach(b => b.disabled = false);
+
+        // Update Bottom Player Bar
+        const barTitle = document.querySelector(".player-track-copy strong");
+        const barArtist = document.querySelector(".player-track-copy span");
+        const barThumb = document.getElementById("player-bar-thumbnail");
+        const barPlaceholder = document.getElementById("player-cover-placeholder");
+
+        if (barTitle) barTitle.textContent = track.title;
+        if (barArtist) barArtist.textContent = track.artist;
+
+        const thumb = track.thumbnail || track.coverUrl;
+        if (barThumb && thumb) {
+          barThumb.src = thumb;
+          barThumb.hidden = false;
+          if (barPlaceholder) barPlaceholder.style.display = "none";
+        }
+
+        // Enable bottom controls & like button
+        document.querySelectorAll(".player-controls button").forEach(b => b.disabled = false);
+        const likeBtn = document.getElementById("bottom-like-btn");
+        if (likeBtn) likeBtn.disabled = false;
+
+        isPlaying = true;
+        setPlayIcons(true);
+        updateLikeUI();
+
+        // Reset progress timer & scrubbers
+        clearInterval(progressTimer);
+        currentPlayTime = 0;
+        updateProgressUI(0, dur);
+
+        progressTimer = setInterval(() => {
+          if (!isPlaying || !currentTrack) return;
+          currentPlayTime += 1;
+          const trackDur = currentTrack.durationSeconds || 210;
+          updateProgressUI(currentPlayTime, trackDur);
+
+          if (currentPlayTime >= trackDur) {
+            if (repeatMode === 'one') {
+              seekTo(0);
+            } else {
+              playNextTrack();
+            }
+          }
+        }, 1000);
+
+        // Apply volume
+        setTimeout(applyVolumeUI, 600);
+
+        // 1. Immediately update the recent tracks table in UI
+        prependToRecentTracks(track);
+
+        // 2. Auto-log play to history backend
+        logHistory(track);
+      }
+
+      // Prepend track to Recent Rotation UI immediately
+      function prependToRecentTracks(track) {
+        if (!recentContainer) return;
+        const vId = track.videoId || track.trackId;
+        if (!vId) return;
+
+        // Remove existing duplicate row if present
+        const existing = recentContainer.querySelector(`.track-row[data-video-id="${vId}"]`);
+        if (existing) {
+          existing.remove();
+        }
+
+        const safeTitle = (track.title || "Unknown Title").replace(/"/g, '&quot;');
+        const safeArtist = (track.artist || "Unknown Artist").replace(/"/g, '&quot;');
+        const durFormatted = formatSeconds(track.durationSeconds || 210);
+
+        const row = document.createElement("article");
+        row.className = "track-row";
+        row.setAttribute("role", "row");
+        row.style.cursor = "pointer";
+        row.dataset.videoId = vId;
+        row.dataset.title = safeTitle;
+        row.dataset.artist = safeArtist;
+        row.dataset.thumbnail = track.thumbnail || track.coverUrl || "";
+        row.dataset.duration = track.durationSeconds || 210;
+
+        row.innerHTML = `
+          <span class="track-number" role="cell">01</span>
+          <div class="track-name" role="cell"><strong>${safeTitle}</strong><span>${safeArtist}</span></div>
+          <div class="mini-art mini-art-one" role="cell"><span>RECENT</span></div>
+          <span class="track-length" role="cell">${durFormatted}</span>
+          <button class="row-action" role="cell" type="button" aria-label="Play ${safeTitle}" style="background:none;border:none;cursor:pointer;">↗</button>
+        `;
+
+        row.addEventListener("click", () => {
+          playTrack(track);
+        });
+
+        // Insert at the beginning of the container
+        recentContainer.insertBefore(row, recentContainer.firstChild);
+
+        // Maintain maximum 10 items
+        while (recentContainer.children.length > 10) {
+          recentContainer.removeChild(recentContainer.lastChild);
+        }
+
+        // Re-number rows
+        recentContainer.querySelectorAll(".track-row").forEach((r, idx) => {
+          const numEl = r.querySelector(".track-number");
+          if (numEl) numEl.textContent = (idx + 1).toString().padStart(2, "0");
+        });
+
+        // Sync with localStorage
+        try {
+          const cached = JSON.parse(localStorage.getItem("musicozy_recent_history") || "[]");
+          const filtered = cached.filter(item => (item.videoId || item.trackId) !== vId);
+          filtered.unshift({
+            trackId: vId,
+            videoId: vId,
+            title: track.title,
+            artist: track.artist,
+            coverUrl: track.thumbnail || track.coverUrl || "",
+            thumbnail: track.thumbnail || track.coverUrl || "",
+            durationSeconds: track.durationSeconds || 210
+          });
+          localStorage.setItem("musicozy_recent_history", JSON.stringify(filtered.slice(0, 20)));
+        } catch (e) {}
+      }
+
+      // History logger to backend
+      async function logHistory(track) {
+        try {
+          const userToken = localStorage.getItem("token") || sessionStorage.getItem("token");
+          const headers = { "Content-Type": "application/json" };
+          if (userToken) headers["Authorization"] = `Bearer ${userToken}`;
+
+          await fetch("/api/history", {
+            method: "POST",
+            headers,
+            body: JSON.stringify({
+              trackId: track.videoId || track.trackId,
+              title: track.title,
+              artist: track.artist,
+              genre: track.genre || "studio",
+              coverUrl: track.thumbnail || track.coverUrl || "",
+              durationSeconds: track.durationSeconds || 210,
+              actionType: "play",
+              actionWeight: 0.5
+            })
+          });
+        } catch (err) {}
+      }
+
+      // Render a list of history records into Section 02
+      function renderRecentHistory(historyList) {
+        if (!recentContainer || !Array.isArray(historyList) || historyList.length === 0) return;
+        recentContainer.innerHTML = "";
+
+        const badges = [
+          { cls: "mini-art-one", text: "RECENT" },
+          { cls: "mini-art-two", text: "STUDIO" },
+          { cls: "mini-art-three", text: "ROTATION" },
+          { cls: "mini-art-four", text: "PLAYED" }
+        ];
+
+        historyList.forEach((h, idx) => {
+          const numStr = (idx + 1).toString().padStart(2, "0");
+          const durFormatted = formatSeconds(h.durationSeconds || 210);
+          const safeTitle = (h.title || "Unknown Title").replace(/"/g, '&quot;');
+          const safeArtist = (h.artist || "Unknown Artist").replace(/"/g, '&quot;');
+          const vId = h.videoId || h.trackId;
+          const badge = badges[idx % badges.length];
+
+          const row = document.createElement("article");
+          row.className = "track-row";
+          row.setAttribute("role", "row");
+          row.style.cursor = "pointer";
+          row.dataset.videoId = vId;
+          row.dataset.title = safeTitle;
+          row.dataset.artist = safeArtist;
+          row.dataset.thumbnail = h.thumbnail || h.coverUrl || "";
+          row.dataset.duration = h.durationSeconds || 210;
+
+          row.innerHTML = `
+            <span class="track-number" role="cell">${numStr}</span>
+            <div class="track-name" role="cell"><strong>${safeTitle}</strong><span>${safeArtist}</span></div>
+            <div class="mini-art ${badge.cls}" role="cell"><span>${badge.text}</span></div>
+            <span class="track-length" role="cell">${durFormatted}</span>
+            <button class="row-action" role="cell" type="button" aria-label="Play ${safeTitle}" style="background:none;border:none;cursor:pointer;">↗</button>
+          `;
+
+          row.addEventListener("click", () => {
+            activePlaylist = historyList.map(item => ({
+              videoId: item.videoId || item.trackId,
+              title: item.title,
+              artist: item.artist,
+              thumbnail: item.thumbnail || item.coverUrl || "",
+              durationSeconds: item.durationSeconds || 210
+            }));
+            activeIndex = idx;
+            playTrack(activePlaylist[activeIndex]);
+          });
+
+          recentContainer.appendChild(row);
+        });
+      }
+
+      // Play/Pause toggle
+      function togglePlay() {
+        if (!currentTrack) {
+          const firstRow = document.querySelector(".track-row[data-video-id]");
+          if (firstRow) firstRow.click();
+          return;
+        }
+
+        if (isPlaying) {
+          sendPlayerCommand("pauseVideo");
+          isPlaying = false;
+          setPlayIcons(false);
+        } else {
+          sendPlayerCommand("playVideo");
+          isPlaying = true;
+          setPlayIcons(true);
+        }
+      }
+
+      document.querySelector(".now-playing-play")?.addEventListener("click", togglePlay);
+      document.getElementById("bottom-play-btn")?.addEventListener("click", togglePlay);
+
+      // Previous & Next Controls
+      function playPrevTrack() {
+        if (activePlaylist.length === 0) {
+          const domRows = document.querySelectorAll(".track-row[data-video-id]");
+          activePlaylist = Array.from(domRows).map(r => ({
+            videoId: r.dataset.videoId,
+            title: r.dataset.title,
+            artist: r.dataset.artist,
+            thumbnail: r.dataset.thumbnail,
+            durationSeconds: parseInt(r.dataset.duration || "210", 10)
+          }));
+        }
+        if (activePlaylist.length === 0) return;
+
+        if (currentPlayTime > 3) {
+          seekTo(0);
+          return;
+        }
+
+        if (activeIndex > 0) {
+          activeIndex--;
+        } else if (repeatMode === 'all') {
+          activeIndex = activePlaylist.length - 1;
+        }
+        playTrack(activePlaylist[activeIndex]);
+      }
+
+      function playNextTrack() {
+        if (activePlaylist.length === 0) {
+          const domRows = document.querySelectorAll(".track-row[data-video-id]");
+          activePlaylist = Array.from(domRows).map(r => ({
+            videoId: r.dataset.videoId,
+            title: r.dataset.title,
+            artist: r.dataset.artist,
+            thumbnail: r.dataset.thumbnail,
+            durationSeconds: parseInt(r.dataset.duration || "210", 10)
+          }));
+        }
+        if (activePlaylist.length === 0) return;
+
+        if (repeatMode === 'one') {
+          seekTo(0);
+          return;
+        }
+
+        if (isShuffle && activePlaylist.length > 1) {
+          let nextIdx;
+          do {
+            nextIdx = Math.floor(Math.random() * activePlaylist.length);
+          } while (nextIdx === activeIndex);
+          activeIndex = nextIdx;
+        } else {
+          if (activeIndex < activePlaylist.length - 1) {
+            activeIndex++;
+          } else if (repeatMode === 'all') {
+            activeIndex = 0;
+          } else {
+            return;
+          }
+        }
+        playTrack(activePlaylist[activeIndex]);
+      }
+
+      document.getElementById("bottom-prev-btn")?.addEventListener("click", playPrevTrack);
+      document.getElementById("bottom-next-btn")?.addEventListener("click", playNextTrack);
+      document.getElementById("hero-prev-btn")?.addEventListener("click", playPrevTrack);
+      document.getElementById("hero-next-btn")?.addEventListener("click", playNextTrack);
+
+      // Shuffle, Repeat, Like & Volume Controls
+      document.getElementById("hero-shuffle-btn")?.addEventListener("click", toggleShuffle);
+      document.getElementById("hero-repeat-btn")?.addEventListener("click", toggleRepeat);
+      document.getElementById("bottom-like-btn")?.addEventListener("click", toggleLike);
+      document.getElementById("volume-btn")?.addEventListener("click", cycleVolume);
+
+      // Progress bar scrubbing / click to seek
+      document.getElementById("hero-progress-track")?.addEventListener("click", (e) => {
+        if (!currentTrack) return;
+        const rect = e.currentTarget.getBoundingClientRect();
+        const ratio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+        seekTo(ratio * (currentTrack.durationSeconds || 210));
       });
 
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape" && !panel.hidden) {
-          panel.hidden = true;
-          trigger.setAttribute("aria-expanded", "false");
-          trigger.focus();
+      document.getElementById("bottom-progress-bar")?.addEventListener("click", (e) => {
+        if (!currentTrack) return;
+        const rect = e.currentTarget.getBoundingClientRect();
+        const ratio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+        seekTo(ratio * (currentTrack.durationSeconds || 210));
+      });
+
+      // Keyboard shortcuts
+      document.addEventListener("keydown", (e) => {
+        if (["INPUT", "TEXTAREA"].includes(document.activeElement?.tagName)) return;
+
+        if (e.code === "Space") {
+          e.preventDefault();
+          togglePlay();
+        } else if (e.code === "ArrowRight") {
+          e.preventDefault();
+          if (e.shiftKey) {
+            seekTo(currentPlayTime + 10);
+          } else {
+            playNextTrack();
+          }
+        } else if (e.code === "ArrowLeft") {
+          e.preventDefault();
+          if (e.shiftKey) {
+            seekTo(currentPlayTime - 10);
+          } else {
+            playPrevTrack();
+          }
+        } else if (e.key === "m" || e.key === "M") {
+          e.preventDefault();
+          toggleMute();
+        } else if (e.key === "l" || e.key === "L") {
+          e.preventDefault();
+          toggleLike();
+        } else if (e.key === "s" || e.key === "S") {
+          e.preventDefault();
+          toggleShuffle();
+        } else if (e.key === "r" || e.key === "R") {
+          e.preventDefault();
+          toggleRepeat();
         }
       });
+
+      // Wire existing demo rows
+      function wireRows(container) {
+        const rows = container.querySelectorAll(".track-row[data-video-id]");
+        rows.forEach((row, idx) => {
+          row.addEventListener("click", () => {
+            activePlaylist = Array.from(rows).map(r => ({
+              videoId: r.dataset.videoId,
+              title: r.dataset.title,
+              artist: r.dataset.artist,
+              thumbnail: r.dataset.thumbnail,
+              durationSeconds: parseInt(r.dataset.duration || "210", 10)
+            }));
+            activeIndex = idx;
+            playTrack(activePlaylist[activeIndex]);
+          });
+        });
+      }
+
+      const recentContainer = document.getElementById("recent-tracks-container");
+      if (recentContainer) wireRows(recentContainer);
+
+      // Load user history (localStorage cache + backend sync)
+      async function loadUserHistory() {
+        try {
+          const cached = JSON.parse(localStorage.getItem("musicozy_recent_history") || "[]");
+          if (cached && cached.length > 0) {
+            renderRecentHistory(cached);
+          }
+        } catch (e) {}
+
+        try {
+          const userToken = localStorage.getItem("token") || sessionStorage.getItem("token");
+          const headers = {};
+          if (userToken) headers["Authorization"] = `Bearer ${userToken}`;
+
+          const res = await fetch("/api/history", { headers });
+          if (res.ok) {
+            const data = await res.json();
+            if (data.history && data.history.length > 0) {
+              renderRecentHistory(data.history);
+              localStorage.setItem("musicozy_recent_history", JSON.stringify(data.history));
+            }
+          }
+        } catch (e) {}
+      }
+      loadUserHistory();
+
+      // 4. Search Form Query Handling
+      if (searchForm) {
+        searchForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const query = input.value.trim();
+          if (!query) return;
+
+          let searchSec = document.getElementById("search-results-section");
+          if (!searchSec) {
+            searchSec = document.createElement("section");
+            searchSec.id = "search-results-section";
+            searchSec.className = "recent-section";
+            searchSec.innerHTML = `
+              <div class="section-header">
+                <div>
+                  <p class="section-index">SEARCH THE CATALOGUE</p>
+                  <h2 id="search-title">Results for "${query}"<span class="red-period">.</span></h2>
+                </div>
+              </div>
+              <div class="track-table" role="table">
+                <div class="track-row track-head" role="row">
+                  <span role="columnheader">NO.</span>
+                  <span role="columnheader">TRACK / ARTIST</span>
+                  <span role="columnheader">SOURCE</span>
+                  <span role="columnheader">LENGTH</span>
+                  <span role="columnheader"></span>
+                </div>
+                <div id="search-tracks-container">
+                  <p class="draft-note" style="padding: 16px 0;">Searching for official studio tracks (60s–400s)...</p>
+                </div>
+              </div>
+            `;
+            const main = document.querySelector("main");
+            main.insertBefore(searchSec, main.firstChild);
+          } else {
+            document.getElementById("search-title").innerHTML = `Results for "${query}"<span class="red-period">.</span>`;
+            document.getElementById("search-tracks-container").innerHTML = `<p class="draft-note" style="padding: 16px 0;">Searching for official studio tracks...</p>`;
+          }
+
+          try {
+            const res = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
+            const data = await res.json();
+            const container = document.getElementById("search-tracks-container");
+
+            if (data.tracks && data.tracks.length > 0) {
+              container.innerHTML = "";
+              activePlaylist = data.tracks;
+
+              data.tracks.forEach((track, idx) => {
+                const numStr = (idx + 1).toString().padStart(2, "0");
+                const safeTitle = track.title.replace(/"/g, '&quot;');
+                const safeArtist = (track.channelTitle || track.artist || "Official Studio").replace(/"/g, '&quot;');
+                const durFormatted = formatSeconds(track.durationSeconds || 210);
+
+                const row = document.createElement("article");
+                row.className = "track-row";
+                row.setAttribute("role", "row");
+                row.style.cursor = "pointer";
+
+                row.innerHTML = `
+                  <span class="track-number" role="cell">${numStr}</span>
+                  <div class="track-name" role="cell"><strong>${safeTitle}</strong><span>${safeArtist}</span></div>
+                  <div class="mini-art mini-art-two" role="cell" style="display:flex;align-items:center;justify-content:center;background:#1a1a1a;color:#fff;font-size:8px;font-weight:700;">
+                    <span>STUDIO</span>
+                  </div>
+                  <span class="track-length" role="cell">${durFormatted}</span>
+                  <button class="row-action" role="cell" type="button" aria-label="Play ${safeTitle}" style="background:none;border:none;cursor:pointer;">↗</button>
+                `;
+
+                row.addEventListener("click", () => {
+                  activeIndex = idx;
+                  playTrack({
+                    videoId: track.videoId,
+                    title: track.title,
+                    artist: safeArtist,
+                    thumbnail: track.thumbnail,
+                    durationSeconds: track.durationSeconds || 210
+                  });
+                });
+
+                container.appendChild(row);
+              });
+            } else {
+              container.innerHTML = `<p class="draft-note">No studio tracks found matching your query.</p>`;
+            }
+          } catch (err) {
+            document.getElementById("search-tracks-container").innerHTML = `<p class="draft-note" style="color:var(--red);">Search error: ${err.message}</p>`;
+          }
+        });
+      }
     })();
   </script>
 </body>

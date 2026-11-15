@@ -222,7 +222,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .player-progress { display: none; }
   .login-header { min-height: 65px; }
   .login-main { grid-template-columns: 1fr; align-content: start; }
-  .login-aside { padding: 38px 0 25px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .login-aside, .login-beside { padding: 38px 0 25px; border-right: 0; border-bottom: 1px solid var(--line); }
   .login-aside h1 { margin: 17px 0; font-size: 55px; }
   .aside-copy { margin: 13px 0 15px; font-size: 11px; }
   .login-form-panel { width: 100%; padding: 33px 0 45px; }

@@ -2,11 +2,14 @@ const mongoose = require("mongoose");
 
 async function connectDB() {
     try {
-        await mongoose.connect(process.env.MONGODB_URI);
+        if (!process.env.MONGODB_URI) {
+            console.warn("MongoDB URI not provided. Running in offline/in-memory mode.");
+            return;
+        }
+        await mongoose.connect(process.env.MONGODB_URI, { serverSelectionTimeoutMS: 2000 });
         console.log("MongoDB connected successfully");
     } catch (error) {
-        console.error("MongoDB connection failed:", error.message);
-        process.exit(1);
+        console.warn("MongoDB connection warning:", error.message, "- Continuing in fallback mode.");
     }
 }
 

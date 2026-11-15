@@ -3,9 +3,9 @@ const mongoose = require('mongoose');
 
 const historySchema = new mongoose.Schema({
 
-    // User who performed the music activity
+    // User who performed the music activity (supports ObjectId for registered users or String for guest users)
     userId: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.Mixed,
         ref: 'User',
         required: [true, 'User ID is required']
     },
@@ -48,6 +48,11 @@ const historySchema = new mongoose.Schema({
         type: String,
         trim: true,
         default: ''
+    },
+
+    durationSeconds: {
+        type: Number,
+        default: 210
     },
 
     // Type of user activity

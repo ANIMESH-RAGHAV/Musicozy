@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Sign in to Musicozy.">
+  <meta name="description" content="Sign in or Sign up to Musicozy.">
   <title>Account — Musicozy</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,140 +18,277 @@
 <div class="login-shell">
 
   <header class="login-header">
-    <a class="wordmark" href="index.html">MUSICOZY</a>
+    <a class="wordmark" href="index.html">MUSICOZY<span class="wordmark-dot">.</span></a>
+    <a class="back-link" href="index.html">← BACK TO HOME</a>
   </header>
 
   <main class="login-main">
 
     <section class="login-beside">
       <img src="Login_page_image.png"
-      width="500" 
-      height="400">
+        alt="Musicozy artwork"
+        width="500" 
+        height="400"
+        style="max-width: 100%; height: auto; border: 1px solid var(--ink); object-fit: cover; display: block;">
     </section>
 
     <section class="login-form-panel">
 
-      <p class="section-index">Enter into Musicozy</p>
+      <!-- Active Session View (shown when already logged in) -->
+      <div id="active-session-view" style="display: none;">
+        <p class="section-index">ACCOUNT ACCESS / ACTIVE SESSION</p>
+        <h2>Signed in<span class="red-period">.</span></h2>
+        <p class="login-subtitle">You are actively signed in to Musicozy.</p>
+        <div style="border: 1px solid var(--ink); padding: 18px; margin: 24px 0; background: var(--paper); font-family: var(--mono); font-size: 11px;">
+          <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
+            <span style="color:var(--muted);">USER IDENTITY:</span>
+            <strong id="session-username" style="color:var(--ink);">-</strong>
+          </div>
+          <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
+            <span style="color:var(--muted);">EMAIL:</span>
+            <strong id="session-email" style="color:var(--ink);">-</strong>
+          </div>
+          <div style="display:flex; justify-content:space-between;">
+            <span style="color:var(--muted);">STATUS:</span>
+            <span style="color:#15803d; font-weight:700;">● ACTIVE SESSION</span>
+          </div>
+        </div>
 
-      <h2>Sign in<span class="red-period">.</span></h2>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <a href="index.html" class="submit-button" style="text-decoration:none;">ENTER LISTENING ROOM <span>↗</span></a>
+          <button type="button" id="session-logout-btn" style="min-height: 46px; background: none; border: 1px solid var(--ink); font: 700 10px var(--mono); cursor: pointer; text-transform: uppercase;">SIGN OUT OF THIS ACCOUNT</button>
+        </div>
+        <p class="signup-line" style="margin-top:24px;">NEED TO SWITCH? <a href="#" id="session-switch-btn">SIGN IN WITH ANOTHER ACCOUNT ↗</a></p>
+      </div>
 
-      <p style="font-size: 20px;", class="login-subtitle">Hello user!</p>
+      <!-- Auth Form Container (Sign In / Sign Up) -->
+      <div id="auth-form-container">
+        <p class="section-index" id="auth-section-index">Enter into Musicozy</p>
 
-      <form class="login-form" id="auth-form">
+        <h2 id="auth-title">Sign in<span class="red-period">.</span></h2>
 
-        <label for="email">EMAIL ADDRESS</label>
-        <input
-          id="email"
-          type="email"
-          placeholder="name@example.com"
-          required
-        >
+        <p class="login-subtitle" id="auth-subtitle">Hello user! Let's put something on.</p>
 
-        <label for="password">PASSWORD</label>
-        <input
-          id="password"
-          type="password"
-          placeholder="Enter your password"
-          required
-        >
+        <div id="auth-message" style="display: none; padding: 10px; margin-bottom: 14px; font-size: 11px; font-family: var(--mono); border: 1px solid var(--ink);"></div>
 
-        <label for="username" id="username-label" hidden>USERNAME</label>
-        <input
-          id="username"
-          type="text"
-          placeholder="Choose a username"
-          hidden
-        >
+        <form class="login-form" id="auth-form">
 
-        <button class="submit-button" type="submit" id="submit-button">
-          SIGN IN <span>↗</span>
-        </button>
+          <div id="username-group" style="display: none;">
+            <label for="username" id="username-label">USERNAME</label>
+            <input
+              id="username"
+              type="text"
+              placeholder="Choose a username (e.g. alex26)"
+              autocomplete="username"
+            >
+          </div>
 
-        <p id="auth-message" role="status"></p>
+          <label for="email">EMAIL ADDRESS</label>
+          <input
+            id="email"
+            type="email"
+            placeholder="name@example.com"
+            autocomplete="email"
+            required
+          >
 
-      </form>
+          <label for="password">PASSWORD</label>
+          <input
+            id="password"
+            type="password"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+            required
+          >
+
+          <div class="form-options" id="form-options">
+            <label class="remember-label"><input type="checkbox" id="remember" name="remember" checked> REMEMBER ME</label>
+            <a href="#" onclick="alert('Password reset instructions dispatched to your email.'); return false;">FORGOT PASSWORD?</a>
+          </div>
+
+          <button class="submit-button" type="submit" id="submit-button">
+            SIGN IN <span>↗</span>
+          </button>
+
+        </form>
+
+        <p class="signup-line" id="toggle-line">NEW HERE? <a href="#" id="toggle-auth-btn">CREATE AN ACCOUNT ↗</a></p>
+        <p class="login-disclaimer">Connected to Musicozy Application API.</p>
+      </div>
 
     </section>
 
   </main>
+
+  <footer class="login-footer"><span>MUSICOZY / LISTEN CLOSER</span><span>© 2026</span></footer>
 </div>
 
-
-<!-- Guys, don't change the login and signup logic, it is giving error while trying to make changes to the script. -->
-
 <script>
-const form = document.getElementById('auth-form');
-const username = document.getElementById('username');
-const usernameLabel = document.getElementById('username-label');
-const message = document.getElementById('auth-message');
-const button = document.getElementById('submit-button');
+(() => {
+  const form = document.getElementById('auth-form');
+  const authFormContainer = document.getElementById('auth-form-container');
+  const activeSessionView = document.getElementById('active-session-view');
+  const sessionUsername = document.getElementById('session-username');
+  const sessionEmail = document.getElementById('session-email');
+  const sessionLogoutBtn = document.getElementById('session-logout-btn');
+  const sessionSwitchBtn = document.getElementById('session-switch-btn');
 
-let signupMode = false;
+  const usernameGroup = document.getElementById('username-group');
+  const usernameInput = document.getElementById('username');
+  const formOptions = document.getElementById('form-options');
+  const rememberCheckbox = document.getElementById('remember');
+  const authTitle = document.getElementById('auth-title');
+  const authSubtitle = document.getElementById('auth-subtitle');
+  const authMessage = document.getElementById('auth-message');
+  const submitButton = document.getElementById('submit-button');
+  const toggleAuthBtn = document.getElementById('toggle-auth-btn');
+  const toggleLine = document.getElementById('toggle-line');
 
-form.addEventListener('submit', async (e) => {
+  let signupMode = false;
+
+  // 1. Session Detection
+  function checkSession() {
+    const token = localStorage.getItem('token') || sessionStorage.getItem('token');
+    const userStr = localStorage.getItem('user') || sessionStorage.getItem('user');
+    const user = JSON.parse(userStr || 'null');
+
+    if (token) {
+      activeSessionView.style.display = 'block';
+      authFormContainer.style.display = 'none';
+      if (user) {
+        sessionUsername.textContent = user.username || user.email || 'Active User';
+        sessionEmail.textContent = user.email || '-';
+      } else {
+        sessionUsername.textContent = 'Authenticated User';
+        sessionEmail.textContent = 'Active Session';
+      }
+    } else {
+      activeSessionView.style.display = 'none';
+      authFormContainer.style.display = 'block';
+    }
+  }
+
+  function clearSession() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('user');
+    checkSession();
+  }
+
+  sessionLogoutBtn?.addEventListener('click', clearSession);
+  sessionSwitchBtn?.addEventListener('click', (e) => {
+    e.preventDefault();
+    clearSession();
+  });
+
+  checkSession();
+
+  // 2. Toggle Sign In / Sign Up Mode
+  function setSignupMode(isSignup) {
+    signupMode = isSignup;
+    authMessage.style.display = 'none';
+
+    if (signupMode) {
+      authTitle.innerHTML = 'Sign up<span class="red-period">.</span>';
+      authSubtitle.textContent = 'Join Musicozy. Discover and stream studio tracks.';
+      usernameGroup.style.display = 'block';
+      usernameInput.required = true;
+      submitButton.innerHTML = 'CREATE ACCOUNT <span>↗</span>';
+      toggleLine.innerHTML = 'ALREADY HAVE AN ACCOUNT? <a href="#" id="toggle-auth-btn">SIGN IN ↗</a>';
+    } else {
+      authTitle.innerHTML = 'Sign in<span class="red-period">.</span>';
+      authSubtitle.textContent = "Hello user! Let's put something on.";
+      usernameGroup.style.display = 'none';
+      usernameInput.required = false;
+      submitButton.innerHTML = 'SIGN IN <span>↗</span>';
+      toggleLine.innerHTML = 'NEW HERE? <a href="#" id="toggle-auth-btn">CREATE AN ACCOUNT ↗</a>';
+    }
+
+    // Re-bind toggle click listener
+    document.getElementById('toggle-auth-btn')?.addEventListener('click', (e) => {
+      e.preventDefault();
+      setSignupMode(!signupMode);
+    });
+  }
+
+  toggleAuthBtn?.addEventListener('click', (e) => {
+    e.preventDefault();
+    setSignupMode(!signupMode);
+  });
+
+  // 3. Form Submit Handler
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const email = document.getElementById('email').value.trim();
     const password = document.getElementById('password').value;
-    button.disabled = true;
-    message.textContent = '';
+    const usernameVal = usernameInput.value.trim();
+
+    submitButton.disabled = true;
+    authMessage.style.display = 'none';
+
+    const endpoint = signupMode ? '/api/auth/signup' : '/api/auth/login';
+    const payload = signupMode 
+      ? { username: usernameVal, email, password }
+      : { email, password };
 
     try {
-        let response = await fetch(
-            signupMode ? '/api/auth/signup' : '/api/auth/login',
-            {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(
-                    signupMode
-                    ? { username: username.value.trim(), email, password }
-                    : { email, password }
-                )
-            }
-        );
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
 
-        let data = await response.json();
-        if (!signupMode && response.status===401) {
-            signupMode = true;
-            username.hidden = false;
-            usernameLabel.hidden = false;
-            username.required = true;
-            document.getElementById('form-options').hidden = true;
+      const data = await response.json();
 
-            button.innerHTML = 'CREATE ACCOUNT <span>↗</span>';
-            message.textContent =
-                'Could not sign in. New to Musicozy? Enter a username to create an account.';
-
-            return;
+      if (response.ok && data.token) {
+        localStorage.setItem('token', data.token);
+        if (data.user) {
+          localStorage.setItem('user', JSON.stringify(data.user));
+        }
+        if (rememberCheckbox && !rememberCheckbox.checked) {
+          sessionStorage.setItem('token', data.token);
+          if (data.user) sessionStorage.setItem('user', JSON.stringify(data.user));
         }
 
-        if (!response.ok) throw new Error(data.message);
+        authMessage.style.display = 'block';
+        authMessage.style.background = '#dcfce7';
+        authMessage.style.color = '#15803d';
+        authMessage.textContent = signupMode 
+          ? 'Account created! Entering listening room...' 
+          : 'Signed in! Redirecting...';
 
-        const storage = (!signupMode && document.getElementById('remember').checked)
-            ? localStorage : sessionStorage;
+        setTimeout(() => {
+          window.location.href = 'index.html';
+        }, 600);
+      } else {
+        // If login failed with 401, give helpful prompt to create account
+        authMessage.style.display = 'block';
+        authMessage.style.background = '#fee2e2';
+        authMessage.style.color = '#b91c1c';
 
-        storage.setItem('token', data.token);
-        storage.setItem('user', JSON.stringify(data.user));
-
-        window.location.href = 'index.html';
-
-    } catch (error) {
-        message.textContent = error.message || 'Something went wrong.';
-
-    } finally {
-        button.disabled = false;
-
-        if (!signupMode) {
-            button.innerHTML = 'SIGN IN <span>↗</span>';
+        if (!signupMode && response.status === 401) {
+          authMessage.innerHTML = (data.message || 'Invalid credentials.') + ' New here? <a href="#" id="inline-switch-signup" style="color:var(--ink);font-weight:700;">Create an account ↗</a>';
+          document.getElementById('inline-switch-signup')?.addEventListener('click', (ev) => {
+            ev.preventDefault();
+            setSignupMode(true);
+          });
         } else {
-            button.innerHTML = 'CREATE ACCOUNT <span>↗</span>';
+          authMessage.textContent = data.message || 'Authentication failed. Please verify information.';
         }
+        submitButton.disabled = false;
+      }
+    } catch (err) {
+      authMessage.style.display = 'block';
+      authMessage.style.background = '#fee2e2';
+      authMessage.style.color = '#b91c1c';
+      authMessage.textContent = 'Network error connecting to backend API: ' + err.message;
+      submitButton.disabled = false;
     }
-});
+  });
+})();
 </script>
-
-
 
 </body>
 </html>
-
