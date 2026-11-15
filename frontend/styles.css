@@ -126,16 +126,15 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .player-side { display: flex; justify-content: end; align-items: center; gap: 18px; color: #aaa79f; font: 8px var(--mono); }
 .volume-mark { color: var(--paper); }
 
-/* Login page */
 .login-page { min-height: 100vh; }
 .login-shell { width: min(1200px,100%); min-height: 100vh; margin: 0 auto; padding: 0 5.2%; display: flex; flex-direction: column; }
 .login-header { display: flex; justify-content: space-between; align-items: center; min-height: 76px; border-bottom: 2px solid var(--ink); }
 .back-link { color: var(--muted); font: 9px var(--mono); }
 .back-link:hover { color: var(--red); }
 .login-main { flex: 1; display: grid; grid-template-columns: 1fr 1fr; align-items: center; }
-.login-aside { padding: 50px 10% 50px 0; border-right: 1px solid var(--line); }
-.login-aside h1 { margin: 26px 0; font-size: clamp(48px,7vw,85px); font-weight: 900; line-height: .88; letter-spacing: -.09em; }
-.login-aside h1 span { color: var(--red); }
+.login-beside { padding: 50px 10% 50px 0; border-right: 1px solid var(--line); }
+.login-beside h1 { margin: 26px 0; font-size: clamp(48px,7vw,85px); font-weight: 900; line-height: .88; letter-spacing: -.09em; }
+.login-beside h1 span { color: var(--red); }
 .aside-rule { width: 100%; height: 9px; background: var(--ink); }
 .aside-copy { max-width: 290px; margin: 20px 0 48px; color: #64625b; font-size: 13px; line-height: 1.7; }
 .aside-code { color: var(--muted); font: 9px var(--mono); }
