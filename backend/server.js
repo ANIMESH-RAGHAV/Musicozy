@@ -8,16 +8,16 @@ const API_KEY = process.env.YT_Key;
 
 app.use(express.json());
 
-const Restricted_words = ['karaoke', 'live'];
+const Restricted_words = ['live', 'shorts', 'edit', 'edit audio', 'reverb'];
 const min_time = 60;   
-const max_time = 500;  
+const max_time = 400;  
 
 function parseDuration(iso) {
   const match = /PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/.exec(iso || '');
   if(!match){
     return 0;
   }
-  // match = [id, hrs, mins, secs] Note: can use id again from here if needed -> checkpoint
+  // match = [id, hrs, mins, secs] Note: can use id again from here if needed -> checkpoint 
   const h = parseInt(match[1] || '0', 10);
   const m = parseInt(match[2] || '0', 10);
   const s = parseInt(match[3] || '0', 10);
@@ -60,8 +60,7 @@ async function attachDurations(items) {
     IdDurationMap[video.id] = parseDuration(video.contentDetails.duration);
   });
 
-  return items
-    .map(function(item) {
+  return items.map(function(item) {
       return { item: item, seconds: IdDurationMap[item.id.videoId] || 0 };
     })
     .filter(function(entry) {
