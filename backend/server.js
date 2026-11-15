@@ -6,7 +6,6 @@ const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
 const friendshipRoutes = require('./routes/friendshipRoutes');
 const historyRoutes = require('./routes/historyRoutes');
-const playlistRoutes = require('./routes/playlistRoutes');
 
 
 const app = express();
@@ -19,7 +18,6 @@ app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/friends', friendshipRoutes);
 app.use('/api/history', historyRoutes);
-app.use('/api/playlists', playlistRoutes);
 
 const Restricted_words = ['karaoke', 'live'];
 const min_time = 60;   
